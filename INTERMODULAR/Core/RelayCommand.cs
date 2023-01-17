@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace INTERMODULAR.Core
+namespace INTERMODULAR.Core //Cambios en el relay
 {
     class RelayCommand : ICommand
     {
