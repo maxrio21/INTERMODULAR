@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace INTERMODULAR.MVVM.View
+namespace INTERMODULAR.CustomControls
 {
     /// <summary>
-    /// Lógica de interacción para LoginView.xaml
+    /// Lógica de interacción para BindablePasswordBox.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class BindablePasswordBox : UserControl
     {
-        public LoginView()
+        public BindablePasswordBox()
         {
             InitializeComponent();
         }
