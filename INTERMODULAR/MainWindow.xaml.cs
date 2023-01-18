@@ -18,7 +18,7 @@ using GMap.NET.WindowsPresentation;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System.Data;
-using Newtonsoft.Json.Bson;
+using INTERMODULAR.API;
 
 namespace INTERMODULAR
 {
@@ -27,6 +27,8 @@ namespace INTERMODULAR
     /// </summary>
     public partial class MainWindow : Window
     {
+        Api api = new Api();
+
         GMarkerGoogle marker;
         GMapOverlay markerOverlay;
         DataTable dt;
@@ -43,7 +45,6 @@ namespace INTERMODULAR
         public MainWindow()
         {
             InitializeComponent();
-            Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -70,11 +71,13 @@ namespace INTERMODULAR
 
             marker.ToolTipMode = MarkerTooltipMode.Always;
             marker.ToolTipText = string.Format("ubicación\n Latitud:{0}\n Longitud:{1}", LatInicial, LngInicial);
-
-            mapView.
-
         
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            dynamic res = api.Get("http://localhost:8080/prueba");
+            tb_DATA.Text = res.ToString();
+        }
     }
 }

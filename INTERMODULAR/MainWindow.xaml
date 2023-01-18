@@ -12,12 +12,15 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        Loaded="MainWindow_Loaded">
     <Border Background="#FFDEDEDE" CornerRadius="20">
         <Grid>
-            <gmaps:GMapControl x:Name="mapView" Loaded="mapView_Loaded" />
+            <gmaps:GMapControl x:Name="mapView" Margin="10,10,276,10"/>
 
             <DataGrid x:Name="tabla_datos" Margin="550,225,40,42"/>
+            <TextBox x:Name="tb_DATA" HorizontalAlignment="Left" Margin="550,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Button Content="GET" HorizontalAlignment="Left" Margin="550,100,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click"/>
         </Grid>
     </Border>
 </Window>
