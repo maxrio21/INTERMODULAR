@@ -70,17 +70,10 @@ namespace INTERMODULAR.MVVM.ViewModel
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand(""));
         }
 
-        private void ExecuteRecoverPassCommand(string email)
-        {
-            throw new NotImplementedException();
-        }
-
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validData;
-            if(
-                string.IsNullOrEmpty(Username) || Username.Length <3 ||
-                Password == null || Password.Length < 3
+            if(string.IsNullOrEmpty(Username) || Username.Length < 3 || Password == null || Password.Length < 3
             )
             {
                 validData = false;
@@ -93,6 +86,11 @@ namespace INTERMODULAR.MVVM.ViewModel
         }
 
         private void ExecuteLoginCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExecuteRecoverPassCommand(string email)
         {
             throw new NotImplementedException();
         }

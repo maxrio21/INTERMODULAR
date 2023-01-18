@@ -23,5 +23,10 @@ namespace INTERMODULAR.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void BindablePasswordBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

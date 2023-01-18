@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
-        xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel"
+        xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel" xmlns:customcontrols="clr-namespace:INTERMODULAR.CustomControls"
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="800"
         WindowStyle="None"
@@ -32,15 +32,28 @@
                      HorizontalAlignment="Left" 
                      Margin="105,141,0,0" 
                      TextWrapping="Wrap" 
-                     Text="{Binding Username}" 
+                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
                      VerticalAlignment="Top" 
                      Width="120"/>
-            
-            <PasswordBox x:Name="tb_Pass" 
-                     HorizontalAlignment="Left" 
-                     Margin="105,207,0,0" 
-                     VerticalAlignment="Top" 
-                     Width="120"/>
+            <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="105,207,575,225"/>
+
+            <TextBlock 
+                HorizontalAlignment="Left" 
+                Margin="106,238,0,0" 
+                TextWrapping="Wrap" 
+                Text="TextBlock" 
+                VerticalAlignment="Top"
+                Foreground="#D7596D" Width="119"/>
+
+            <Button Command="{Binding LoginCommand}"
+                    Content="LOGIN" 
+                    HorizontalAlignment="Left" 
+                    Margin="105,309,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="25" 
+                    Width="60"/>
+
+
         </Grid>
     </Border>
 </Window>
