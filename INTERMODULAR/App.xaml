@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:INTERMODULAR"
              StartupUri="MVVM/View/LoginView.xaml">
     <Application.Resources>
-         
+        <Style x:Key="lblDesign" TargetType="Label">
+            <Setter Property="FontFamily" Value="Fonts/RobotoBold.ttf #RobotoBold"/>
+        </Style>
     </Application.Resources>
 </Application>

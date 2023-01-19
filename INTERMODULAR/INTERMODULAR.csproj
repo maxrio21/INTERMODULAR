@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
+    <None Remove="MVVM\View\left_login.jpg" />
+  </ItemGroup>
+	
+  <ItemGroup>
     <Folder Include="Theme\" />
   </ItemGroup>
 
@@ -19,6 +21,10 @@
     <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="RestSharp" Version="108.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="MVVM\View\left_login.jpg" />
   </ItemGroup>
 
 </Project>
