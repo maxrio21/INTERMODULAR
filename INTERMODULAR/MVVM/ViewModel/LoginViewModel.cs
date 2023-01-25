@@ -1,8 +1,13 @@
-﻿using System;
+﻿using INTERMODULAR.MVVM.Model;
+using INTERMODULAR.MVVM.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -14,6 +19,8 @@ namespace INTERMODULAR.MVVM.ViewModel
         private SecureString _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
+
+        private IUserRepository userRepository;
 
         public string Username 
         { 
@@ -59,6 +66,8 @@ namespace INTERMODULAR.MVVM.ViewModel
             }
         }
 
+        //Comandos
+
         public ICommand LoginCommand { get; }
         public ICommand RecoverPasswordCommand { get; }
         public ICommand ShowPasswordCommand { get; }
@@ -66,6 +75,7 @@ namespace INTERMODULAR.MVVM.ViewModel
 
         public LoginViewModel()
         {
+            userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand(""));
         }
@@ -87,7 +97,19 @@ namespace INTERMODULAR.MVVM.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Llega a ExecuteLoginCommand");
+            LoginModel model = new LoginModel();
+            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username,Password));
+            if (isValidUser.Result)
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(
+                    new GenericIdentity(Username), null);
+                IsViewVisible = false;
+            }
+            else
+            {
+                ErrorMessage = "El nombre de usuario o contraseña son incorrectos.";
+            }
         }
 
         private void ExecuteRecoverPassCommand(string email)

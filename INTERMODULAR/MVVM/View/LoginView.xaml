@@ -81,7 +81,7 @@
                 HorizontalAlignment="Left" 
                 Margin="46,292,0,0" 
                 TextWrapping="Wrap" 
-                Text="Usuario o contraseña incorrectos." 
+                Text="{Binding ErrorMessage}"
                 VerticalAlignment="Top"
                 Foreground="#D7596D" 
                 Width="312" 
@@ -169,6 +169,7 @@
                 FontSize="35" 
                 FontWeight="Normal" 
                 FontFamily="Roboto" Grid.Column="1" Height="63" Width="206" Foreground="#FFE0E0E0" TextTrimming="None" FontStretch="Normal"/>
+            <TextBlock x:Name="txt_prueba" HorizontalAlignment="Left" Margin="261,79,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="82" Width="97"/>
 
 
         </Grid>

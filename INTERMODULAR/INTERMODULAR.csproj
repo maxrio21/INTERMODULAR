@@ -8,17 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Theme\**" />
+    <EmbeddedResource Remove="Theme\**" />
+    <None Remove="Theme\**" />
+    <Page Remove="Theme\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\left_login.jpg" />
     <None Remove="MVVM\View\left_login.jpg" />
   </ItemGroup>
-	
+
   <ItemGroup>
-    <Folder Include="Theme\" />
+    <Content Include="Images\left_login.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
     <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
     <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="RestSharp" Version="108.0.3" />
   </ItemGroup>
