@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using RestSharp;
 using System.Net;
+using System.Windows;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Security.Policy;
+using System.Text.Json.Nodes;
+using System.Text;
 
 namespace INTERMODULAR.MVVM.Repositories
 {
@@ -16,34 +22,31 @@ namespace INTERMODULAR.MVVM.Repositories
 
         public async Task<bool> AuthenticateUser(NetworkCredential credential)
         {
-            
-            //LoginView lV = new LoginView();
             LoginModel loginModel = new LoginModel();
             loginModel._id = credential.UserName;
             loginModel.password = credential.Password;
 
             var client = new RestClient("http://localhost:3000/");
-            var req = new RestRequest("api/login", Method.Post);
-            req.RequestFormat = DataFormat.Json;
+            var req = new RestRequest("api/auth/login/", Method.Post);
+            req.RequestFormat = RestSharp.DataFormat.Json;
             req.AddBody(loginModel);
-            /*
-            req.AddParameter("_id", loginModel._id);
-            req.AddParameter("password",loginModel.password);
-            req.AddHeader("Content-Type", "application/json");
-            */
+           
 
             var res = client.Execute(req);
             var content = res.Content;
 
             if(res.IsSuccessStatusCode)
             {
+                var json = res.Content.ToString();
+                string token = JsonConvert.DeserializeObject<TokenModel>(json).data[0];
+                Application.Current.Properties["TOKEN"] = token;
                 return true;
             }
             else
             {
-                //lV.txt_prueba.Text = JsonSerializer.Serialize(loginModel);
                 return false;
             }
+
         }
 
         public void Edit(UserModel userModel)
