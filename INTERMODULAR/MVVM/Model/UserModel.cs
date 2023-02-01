@@ -13,9 +13,9 @@ namespace INTERMODULAR.MVVM.Model
         public string Apellido { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public string FechaAlta { get; set; }
-        public string[] Siguiendo { get; set; }
-        public string Foto { get; set; }
-        public bool Admin { get; set; }
+        //public string FechaAlta { get; set; }
+        //public string[] Siguiendo { get; set; }
+        //public string Foto { get; set; }
+        //public bool Admin { get; set; }
     }
 }

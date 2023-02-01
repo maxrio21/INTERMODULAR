@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
+        xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d" 
         d:DesignHeight="450" d:DesignWidth="800"
         Title="MainView"
@@ -22,12 +23,67 @@
                 <ColumnDefinition Width="177*"/>
                 <ColumnDefinition Width="623*"/>
             </Grid.ColumnDefinitions>
+
             <Border CornerRadius="30,30,30,30" Grid.Column="0"
-                Background="#FF569F39" 
->
-                
+                Background="#FF569F39">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Column="0" VerticalAlignment="Center" Height="124">
+                        <Border Margin="0,0,0,10"
+                                Width="80" 
+                                Height="80" 
+                                Padding="3" 
+                                Background="White" 
+                                CornerRadius="100"
+                                DockPanel.Dock="Top">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="../../Images/left_login.jpg"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+                        <TextBlock Text="Nombre" DockPanel.Dock="Top" 
+                                   TextAlignment="Center" 
+                                   FontFamily="Roboto Medium" 
+                                   FontSize="16"
+                                   Foreground="White"/>
+
+                        <TextBlock Text="Apellidos" DockPanel.Dock="Top" 
+                                   TextAlignment="Center" 
+                                   FontFamily="Roboto Medium" 
+                                   FontSize="16"
+                                   Foreground="White"/>
+
+                    </DockPanel>
+
+                    <StackPanel Grid.Row="1">
+                        <RadioButton Style="{StaticResource MenuButtonTheme}">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Account" Margin="20,0,0,0"/>
+                                <TextBlock Text="Usuarios" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource MenuButtonTheme}">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="ApplicationEditOutline" Margin="20,0,0,0"/>
+                                <TextBlock Text="Publicaciones" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource MenuButtonTheme}">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Cog" Margin="20,0,0,0"/>
+                                <TextBlock Text="Perfil" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+
+                </Grid>
             </Border>
-            <Border CornerRadius="30,30,30,30" Grid.Column="1"
+
+            <Border CornerRadius="30,30,30,30" Grid.RowSpan="2" Grid.Column="1"
                 Background="White" 
 >
 

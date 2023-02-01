@@ -40,7 +40,7 @@
 
             <Border CornerRadius="0,15,15,0" Grid.Column="1">
                 <Border.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="/MVVM/View/left_login.jpg"/>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="/Images/left_login.jpg"/>
                 </Border.Background>
             </Border>
 

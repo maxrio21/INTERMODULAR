@@ -15,18 +15,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\RobotoBold.ttf" />
+    <None Remove="Fonts\RobotoMedium.ttf" />
+    <None Remove="Fonts\RobotoRegular.ttf" />
     <None Remove="Images\left_login.jpg" />
     <None Remove="MVVM\View\left_login.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\left_login.jpg" />
+    <Resource Include="Fonts\RobotoBold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\RobotoMedium.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\RobotoRegular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\left_login.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GMap.NET.Core" Version="2.1.7" />
-    <PackageReference Include="GMap.NET.WinForms" Version="2.1.7" />
-    <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="RestSharp" Version="108.0.3" />

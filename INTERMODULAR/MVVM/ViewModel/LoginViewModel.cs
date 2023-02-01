@@ -97,8 +97,7 @@ namespace INTERMODULAR.MVVM.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-            Console.WriteLine("Llega a ExecuteLoginCommand");
-            LoginModel model = new LoginModel();
+            //LoginModel model = new LoginModel();
             var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username,Password));
             if (isValidUser.Result)
             {

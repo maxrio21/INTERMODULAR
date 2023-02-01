@@ -4,8 +4,14 @@
              xmlns:local="clr-namespace:INTERMODULAR"
              Startup="ApplicationStart">
     <Application.Resources>
-        <Style x:Key="lblDesign" TargetType="Label">
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Themes/MenuButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <!--<Style x:Key="lblDesign" TargetType="Label">
             <Setter Property="FontFamily" Value="Fonts/RobotoBold.ttf #RobotoBold"/>
-        </Style>
+        </Style>-->
     </Application.Resources>
 </Application>
