@@ -12,7 +12,7 @@
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Roboto Medium"/>
+            <Setter Property="FontFamily" Value="DMSansBold"/>
         </Style.Setters>
         
         <Style.Triggers>

@@ -15,6 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\DMSans-Bold.ttf" />
+    <None Remove="Fonts\DMSans-Medium.ttf" />
+    <None Remove="Fonts\DMSans-Regular.ttf" />
+    <None Remove="Fonts\DMSansBold.ttf" />
+    <None Remove="Fonts\DMSansMedium.ttf" />
+    <None Remove="Fonts\DMSansRegular.ttf" />
     <None Remove="Fonts\RobotoBold.ttf" />
     <None Remove="Fonts\RobotoMedium.ttf" />
     <None Remove="Fonts\RobotoRegular.ttf" />
@@ -23,6 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\DMSansBold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\DMSansMedium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\DMSansRegular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Fonts\RobotoBold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
