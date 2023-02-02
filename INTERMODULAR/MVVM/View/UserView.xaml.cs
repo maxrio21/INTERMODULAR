@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
     /// <summary>
-    /// Lógica de interacción para Usuarios.xaml
+    /// Lógica de interacción para UserView.xaml
     /// </summary>
-    public partial class Usuarios : Window
+    public partial class UserView : UserControl
     {
-        public Usuarios()
+        public UserView()
         {
             InitializeComponent();
         }

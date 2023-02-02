@@ -34,12 +34,12 @@
             <Border CornerRadius="30,30,30,30" Grid.Column="0">
                 <Grid Margin="0,0,0,10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="323*"/>
-                        <RowDefinition Height="327*"/>
+                        <RowDefinition Height="87*"/>
+                        <RowDefinition Height="73*"/>
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Column="0" 
                                VerticalAlignment="Center" 
-                               Height="227">
+                               Height="260">
 
                         <Border DockPanel.Dock="Top" Width="auto" Height="70" Margin="10,0,10,10">
                             <Border.Background>
@@ -76,7 +76,7 @@
                         <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas"/>
                         <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
-                    <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" Margin="0,287,0,0"/>
+                    <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" Margin="0,258,0,0"/>
 
                 </Grid>
             </Border>
@@ -84,7 +84,12 @@
             <Border CornerRadius="30,30,30,30" Grid.RowSpan="2" Grid.Column="1"
                 Background="White" 
 >
-                <TextBlock Text="Nombre" FontSize="20" Foreground="Black" Margin="43,34,492,388"/>
+                <ContentControl Grid.ColumnSpan="1" 
+                                Grid.Column="1" 
+                                Grid.Row="1"
+                                Margin="10">
+                    
+                </ContentControl>
 
             </Border>
         </Grid>
