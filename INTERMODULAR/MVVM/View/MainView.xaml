@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d" 
-        Height="450" 
-        Width="800"
+        Height="650" 
+        Width="1000"
         Title="MainView"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -17,9 +17,8 @@
     <Border CornerRadius="30,30,30,30">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFBDF14E" Offset="0"/>
-                <GradientStop Color="#FF00CC8F" Offset="1"/>
-                <GradientStop Color="#FF5EDE6E" Offset="0.715"/>
+                <GradientStop Color="#FFA5D26A" Offset="0"/>
+                <GradientStop Color="#FF26BBAC" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
@@ -33,19 +32,21 @@
             </Grid.ColumnDefinitions>
 
             <Border CornerRadius="30,30,30,30" Grid.Column="0">
-                <Grid>
+                <Grid Margin="0,0,0,10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="127*"/>
-                        <RowDefinition Height="98*"/>
+                        <RowDefinition Height="323*"/>
+                        <RowDefinition Height="327*"/>
                     </Grid.RowDefinitions>
-                    <DockPanel Grid.Column="0" VerticalAlignment="Center">
-                        
+                    <DockPanel Grid.Column="0" 
+                               VerticalAlignment="Center" 
+                               Height="227">
+
                         <Border DockPanel.Dock="Top" Width="auto" Height="70" Margin="10,0,10,10">
                             <Border.Background>
                                 <ImageBrush Stretch="Uniform" ImageSource="/Images/LogoEnteroBlanco.png"/>
                             </Border.Background>
                         </Border>
-                        
+
                         <Border Margin="0,0,0,10"
                                 Width="80" 
                                 Height="80"
@@ -69,11 +70,13 @@
                                    Foreground="White"/>
                     </DockPanel>
 
-                    <StackPanel Grid.Row="1">
+                    <StackPanel Grid.Row="1" Margin="0,2,0,90">
+                        <RadioButton Style="{StaticResource homeBtn}" Content="Home"/>
                         <RadioButton Style="{StaticResource userBtn}" Content="Usuarios"/>
                         <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas"/>
                         <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
+                    <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" Margin="0,287,0,0"/>
 
                 </Grid>
             </Border>

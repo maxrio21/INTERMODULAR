@@ -22,57 +22,85 @@
         </Style.Triggers>
     </Style>
     <!--
-    <Border x:Name="userBorder" Background="White" 
-                                HorizontalAlignment="Stretch" 
-                                VerticalAlignment="Stretch"
-                                Margin="20,0,0,0"
-                                CornerRadius="20,0,0,20">
-        <RadioButton BorderThickness="0" 
-                        Background="Transparent"
-                        VerticalContentAlignment="Center"
-                        HorizontalContentAlignment="Left"
-                        Height="40">
-            <StackPanel Orientation="Horizontal">
-                <Icon:PackIconMaterial Foreground="#FF80e464"
-                                        Kind="AccountOutline" 
-                                        Margin="0,0,0,0"/>
-                <TextBlock  Foreground="#FF80e464"
-                            Text="{TemplateBinding Property=Content}" 
-                            FontWeight="Bold"
-                            Margin="10,0,0,0"/>
-            </StackPanel>
-        </RadioButton>
-    </Border>
+    COLORES
+    home:       #FF62c68d   HomeOutline
+    user:       #FF5ac491   AccountOutline
+    rutes:      #FF53c395   MapSearchOutline
+    profile:    #FF4bc299   CogOutline
+    logout:     #FF26BBAC   LogOut
     -->
+    <Style x:Key="homeBtn" TargetType ="RadioButton">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="radioBorder" Background="Transparent" 
+                                HorizontalAlignment="Stretch"
+                                Margin="20,0,0,0"
+                                Padding="15,0,0,0"
+                                CornerRadius="20,0,0,20"
+                                Height="40">
+                            
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Foreground="White"
+                                                           Kind="HomeOutline" 
+                                                           Margin="0,0,0,0"
+                                                           VerticalAlignment="Center"
+                                                           x:Name="radioIcon"/>
+                                    <TextBlock  Foreground="White"
+                                                Text="{TemplateBinding Property=Content}" 
+                                                FontWeight="Bold"
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                x:Name="radioText"/>
+                                </StackPanel>
+                            
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="White" TargetName="radioBorder"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioIcon"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioText"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+    
     <Style x:Key="userBtn" TargetType ="RadioButton">
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="userBorder" Background="Transparent" 
-                                HorizontalAlignment="Stretch" 
-                                VerticalAlignment="Stretch"
+                        <Border x:Name="radioBorder" Background="Transparent" 
+                                HorizontalAlignment="Stretch"
                                 Margin="20,0,0,0"
-                                CornerRadius="20,0,0,20">
-                            <RadioButton BorderThickness="0" 
-                                         Background="Transparent"
-                                         VerticalContentAlignment="Center"
-                                         HorizontalContentAlignment="Left"
-                                         Height="40">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Foreground="White"
-                                                            Kind="AccountOutline" 
-                                                            Margin="0,0,0,0"/>
-                                    <TextBlock  Foreground="White"
+                                Padding="15,0,0,0"
+                                CornerRadius="20,0,0,20"
+                                Height="40">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Foreground="White"
+                                                           Kind="AccountOutline" 
+                                                           Margin="0,0,0,0"
+                                                           VerticalAlignment="Center"
+                                                           x:Name="radioIcon"/>
+                                <TextBlock  Foreground="White"
                                                 Text="{TemplateBinding Property=Content}" 
                                                 FontWeight="Bold"
-                                                Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </RadioButton>
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                x:Name="radioText"/>
+                            </StackPanel>
+
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="Red" TargetName="userBorder"/>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="White" TargetName="radioBorder"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioIcon"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioText"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -86,27 +114,35 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border Background="White" 
-                                HorizontalAlignment="Stretch" 
-                                VerticalAlignment="Stretch"
+                        <Border x:Name="radioBorder" Background="Transparent" 
+                                HorizontalAlignment="Stretch"
                                 Margin="20,0,0,0"
-                                CornerRadius="20,0,0,20">
-                            <RadioButton BorderThickness="0" 
-                                         Background="Transparent"
-                                         VerticalContentAlignment="Center"
-                                         HorizontalContentAlignment="Left"
-                                         Height="40">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Foreground="#FF80e464"
-                                                            Kind="MapSearchOutline" 
-                                                            Margin="0,0,0,0"/>
-                                    <TextBlock  Foreground="#FF80e464"
+                                Padding="15,0,0,0"
+                                CornerRadius="20,0,0,20"
+                                Height="40">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Foreground="White"
+                                                           Kind="MapSearchOutline" 
+                                                           Margin="0,0,0,0"
+                                                           VerticalAlignment="Center"
+                                                           x:Name="radioIcon"/>
+                                <TextBlock  Foreground="White"
                                                 Text="{TemplateBinding Property=Content}" 
                                                 FontWeight="Bold"
-                                                Margin="10,0,0,0"/>
-                                </StackPanel>
-                            </RadioButton>
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                x:Name="radioText"/>
+                            </StackPanel>
+
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="White" TargetName="radioBorder"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioIcon"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioText"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -118,45 +154,84 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-
-                        <Border Background="Transparent" 
-                                HorizontalAlignment="Stretch" 
-                                VerticalAlignment="Stretch"
+                        <Border x:Name="radioBorder" Background="Transparent" 
+                                HorizontalAlignment="Stretch"
                                 Margin="20,0,0,0"
-                                CornerRadius="20,0,0,20">
-                            <RadioButton BorderThickness="0" 
-                                         Background="Transparent"
-                                         VerticalContentAlignment="Center"
-                                         HorizontalContentAlignment="Left"
-                                         Height="40">
+                                Padding="15,0,0,0"
+                                CornerRadius="20,0,0,20"
+                                Height="40">
 
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Foreground="White"
-                                                            Kind="CogOutline" 
-                                                            Margin="0,0,0,0"/>
-                                    <TextBlock  Foreground="White"
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Foreground="White"
+                                                           Kind="CogOutline" 
+                                                           Margin="0,0,0,0"
+                                                           VerticalAlignment="Center"
+                                                           x:Name="radioIcon"/>
+                                <TextBlock  Foreground="White"
                                                 Text="{TemplateBinding Property=Content}" 
                                                 FontWeight="Bold"
-                                                Margin="10,0,0,0"/>
-                                </StackPanel>
-
-                            </RadioButton>
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                x:Name="radioText"/>
+                            </StackPanel>
 
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="White" TargetName="radioBorder"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioIcon"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioText"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
         </Style.Setters>
     </Style>
-    
+
+    <Style x:Key="logOutBtn" TargetType="RadioButton">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="radioBorder" Background="Transparent" 
+                                HorizontalAlignment="Stretch"
+                                Margin="20,0,0,0"
+                                Padding="15,0,0,0"
+                                CornerRadius="20,0,0,20"
+                                Height="40">
+
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Foreground="White"
+                                                           Kind="Logout" 
+                                                           Margin="0,0,0,0"
+                                                           VerticalAlignment="Center"
+                                                           x:Name="radioIcon"/>
+                                <TextBlock  Foreground="White"
+                                                Text="{TemplateBinding Property=Content}" 
+                                                FontWeight="Bold"
+                                                Margin="10,0,0,0"
+                                                VerticalAlignment="Center"
+                                                x:Name="radioText"/>
+                            </StackPanel>
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="White" TargetName="radioBorder"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioIcon"/>
+                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioText"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
     <Style TargetType="TextBlock">
         <Style.Setters>
             <Setter Property="TextElement.FontFamily" Value="../Fonts/#DM Sans"/>
         </Style.Setters>
-    </Style>
-    
-    <Style x:Key="lblDesign" TargetType="Label">
-        <Setter Property="FontFamily" Value="./Fonts/RobotoBold.ttf #RobotoBold"/>
     </Style>
 </ResourceDictionary>
