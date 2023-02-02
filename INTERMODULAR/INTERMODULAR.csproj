@@ -15,9 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Fonts\DMSans-Bold.ttf" />
-    <None Remove="Fonts\DMSans-Medium.ttf" />
-    <None Remove="Fonts\DMSans-Regular.ttf" />
     <None Remove="Fonts\DMSansBold.ttf" />
     <None Remove="Fonts\DMSansMedium.ttf" />
     <None Remove="Fonts\DMSansRegular.ttf" />
@@ -25,19 +22,11 @@
     <None Remove="Fonts\RobotoMedium.ttf" />
     <None Remove="Fonts\RobotoRegular.ttf" />
     <None Remove="Images\left_login.jpg" />
+    <None Remove="Images\LogoEnteroBlanco.png" />
     <None Remove="MVVM\View\left_login.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Fonts\DMSansBold.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\DMSansMedium.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\DMSansRegular.ttf">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Fonts\RobotoBold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -60,7 +49,15 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <Resource Include="Fonts\DMSansBold.ttf" />
+	  <Resource Include="Fonts\DMSansMedium.ttf" />
+	  <Resource Include="Fonts\DMSansRegular.ttf" />
+	  <Resource Include="Images\LogoEnteroBlanco.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+  </ItemGroup>	
+	
+  <ItemGroup>
     <Resource Include="MVVM\View\left_login.jpg" />
   </ItemGroup>
-
 </Project>

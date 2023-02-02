@@ -8,10 +8,10 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="./Themes/Fuentes.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        <!--<Style x:Key="lblDesign" TargetType="Label">
-            <Setter Property="FontFamily" Value="Fonts/RobotoBold.ttf #RobotoBold"/>
-        </Style>-->
+        
     </Application.Resources>
 </Application>

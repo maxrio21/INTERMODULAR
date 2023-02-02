@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
-        xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel" xmlns:customcontrols="clr-namespace:INTERMODULAR.CustomControls"
+        xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel" 
+        xmlns:customcontrols="clr-namespace:INTERMODULAR.CustomControls"
         mc:Ignorable="d"
         Title="LoginView" 
         Height="450" 
@@ -14,7 +15,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
-
+    
     <Window.DataContext>
         <viewModel:LoginViewModel/>
     </Window.DataContext>
@@ -50,17 +51,19 @@
                        HorizontalAlignment="Left" 
                        Margin="46,154,0,0" 
                        VerticalAlignment="Top" 
-                       FontFamily="Roboto" 
+                       Style="{StaticResource Fuentes}" 
                        FontWeight="Bold"
                        Width="69"/>
+            
             <TextBox x:Name="tb_User" 
                      HorizontalAlignment="Left" 
+                     VerticalContentAlignment="Center"
                      Margin="46,173,0,0" 
                      TextWrapping="Wrap" 
                      Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
                      VerticalAlignment="Top" 
                      Width="312"
-                     FontFamily="Roboto"
+                     Style="{StaticResource FuentesBox}"
                      BorderThickness="0,0,0,0" 
                      Height="35" 
                      Background="#FFF2F2F2">
@@ -69,8 +72,8 @@
             <TextBlock Text="CONTRASEÑA" 
                        HorizontalAlignment="Left" 
                        Margin="46,233,0,0" 
-                       VerticalAlignment="Top" 
-                       FontFamily="Roboto" 
+                       VerticalAlignment="Top"
+                       Style="{StaticResource Fuentes}" 
                        FontWeight="Bold"/>
             <customcontrols:BindablePasswordBox 
                 Password="{
@@ -96,16 +99,17 @@
                     Margin="46,369,0,0" 
                     VerticalAlignment="Top" 
                     Height="36" 
-                    Width="145" FontFamily="Roboto" FontWeight="Bold"/>
+                    Width="145" 
+                    FontFamily="Roboto" 
+                    FontWeight="Bold"/>
 
-            <TextBlock 
+            <TextBlock Style="{StaticResource Fuentes}"
                        Text="Bienvenido" 
                        HorizontalAlignment="Left" 
                        Margin="46,69,0,0" 
                        VerticalAlignment="Top" 
                        FontSize="30" 
-                       FontWeight="Bold" 
-                       FontFamily="Roboto Medium"/>
+                       FontWeight="Bold"/>
             <TextBlock 
                 Text="Inicia Sesión" 
                 HorizontalAlignment="Left" 
@@ -113,27 +117,10 @@
                 VerticalAlignment="Top" 
                 FontSize="18" 
                 FontWeight="Normal" 
-                FontFamily="Roboto"/>
+                Style="{StaticResource Fuentes}"/>
 
-            <Button 
-                Content="REGISTRATE" 
-                HorizontalAlignment="Left" 
-                Margin="213,369,0,0" 
-                VerticalAlignment="Top" 
-                Width="145" Height="36" 
-                FontFamily="Roboto" 
-                FontWeight="Bold" 
-                Background="#FF569F39" 
-                Foreground="White" BorderThickness="0,0,0,0"
-                
-                >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="7"></Setter>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <CheckBox 
+
+            <!--<CheckBox 
                 Content="Mantener sesión inicada" 
                 HorizontalAlignment="Left" 
                 Margin="46,331,0,0" 
@@ -146,31 +133,40 @@
                         <Setter Property="CornerRadius" Value="1"></Setter>
                     </Style>
                 </CheckBox.Resources>
-            </CheckBox>
-            <TextBlock 
-                Text="Wikiloc" 
-                HorizontalAlignment="Left" 
-                Margin="51,66,0,0" 
-                VerticalAlignment="Top" 
-                FontSize="60" 
-                FontWeight="Bold" 
-                FontFamily="Roboto" Grid.Column="1" Height="73" Width="206" Foreground="#FFE0E0E0" TextTrimming="None" FontStretch="Normal"/>
+            </CheckBox>-->
+            <Border DockPanel.Dock="Top" Width="auto"  Grid.Column="1" Margin="0,60,0,290">
+                <Border.Background>
+                    <ImageBrush Stretch="Uniform" ImageSource="/Images/LogoEnteroBlanco.png"/>
+                </Border.Background>
+            </Border>
             <TextBlock 
                 Text="Descubre" 
                 HorizontalAlignment="Left" 
-                Margin="51,121,0,0" 
+                Margin="52,173,0,0" 
                 VerticalAlignment="Top" 
                 FontSize="40" 
                 FontWeight="Normal" 
-                FontFamily="Roboto Medium" Grid.Column="1" Height="60" Width="206" Foreground="#FFE0E0E0" TextTrimming="None" FontStretch="Normal"/>
+                Style="{StaticResource Fuentes}"
+                Grid.Column="1" 
+                Height="60" 
+                Width="206" 
+                Foreground="#FFE0E0E0" 
+                TextTrimming="None" 
+                FontStretch="Normal"/>
             <TextBlock 
                 Text="Explora" 
                 HorizontalAlignment="Left" 
-                Margin="51,162,0,0" 
+                Margin="52,215,0,0" 
                 VerticalAlignment="Top" 
                 FontSize="35" 
                 FontWeight="Normal" 
-                FontFamily="Roboto" Grid.Column="1" Height="63" Width="206" Foreground="#FFE0E0E0" TextTrimming="None" FontStretch="Normal"/>
+                Style="{StaticResource Fuentes}" 
+                Grid.Column="1" 
+                Height="62" 
+                Width="206" 
+                Foreground="#FFE0E0E0" 
+                TextTrimming="None" 
+                FontStretch="Normal"/>
 
 
         </Grid>

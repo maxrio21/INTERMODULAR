@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d" 
-        d:DesignHeight="450" d:DesignWidth="800"
+        Height="450" 
+        Width="800"
         Title="MainView"
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -34,10 +35,17 @@
             <Border CornerRadius="30,30,30,30" Grid.Column="0">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="4*"/>
-                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="127*"/>
+                        <RowDefinition Height="98*"/>
                     </Grid.RowDefinitions>
-                    <DockPanel Grid.Column="0" VerticalAlignment="Center" Height="124">
+                    <DockPanel Grid.Column="0" VerticalAlignment="Center">
+                        
+                        <Border DockPanel.Dock="Top" Width="auto" Height="70" Margin="10,0,10,10">
+                            <Border.Background>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Images/LogoEnteroBlanco.png"/>
+                            </Border.Background>
+                        </Border>
+                        
                         <Border Margin="0,0,0,10"
                                 Width="80" 
                                 Height="80"
@@ -52,36 +60,19 @@
                         </Border>
                         <TextBlock Text="Nombre" DockPanel.Dock="Top" 
                                    TextAlignment="Center" 
-                                   FontFamily="Roboto Medium" 
                                    FontSize="16"
                                    Foreground="White"/>
 
                         <TextBlock Text="Apellidos" DockPanel.Dock="Top" 
                                    TextAlignment="Center" 
-                                   FontFamily="Roboto Medium" 
                                    FontSize="16"
                                    Foreground="White"/>
                     </DockPanel>
 
                     <StackPanel Grid.Row="1">
-                        <RadioButton Style="{StaticResource MenuButtonTheme}">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="Account" Margin="20,0,0,0"/>
-                                <TextBlock Text="Usuarios" Margin="10,0,0,0"/>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource MenuButtonTheme}">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="ApplicationEditOutline" Margin="20,0,0,0"/>
-                                <TextBlock Text="Publicaciones" Margin="10,0,0,0"/>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource MenuButtonTheme}">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="Cog" Margin="20,0,0,0"/>
-                                <TextBlock Text="Perfil" Margin="10,0,0,0"/>
-                            </StackPanel>
-                        </RadioButton>
+                        <RadioButton Style="{StaticResource userBtn}" Content="Usuarios"/>
+                        <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas"/>
+                        <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
 
                 </Grid>
@@ -90,6 +81,7 @@
             <Border CornerRadius="30,30,30,30" Grid.RowSpan="2" Grid.Column="1"
                 Background="White" 
 >
+                <TextBlock Text="Nombre" FontSize="20" Foreground="Black" Margin="43,34,492,388"/>
 
             </Border>
         </Grid>

@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type TextBlock}"
+           x:Key="Fuentes">
+        <Style.Setters>
+            <Setter Property="TextElement.FontFamily" Value="../Fonts/#DM Sans"/>
+        </Style.Setters>
+    </Style>
+    <Style TargetType="{x:Type TextBox}"
+           x:Key="FuentesBox">
+        <Style.Setters>
+            <Setter Property="TextElement.FontFamily" Value="../Fonts/#DM Sans"/>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>
