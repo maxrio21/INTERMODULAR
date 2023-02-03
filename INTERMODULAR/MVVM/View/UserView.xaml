@@ -28,27 +28,31 @@
                     </DataGridCheckBoxColumn.HeaderTemplate>
                 </DataGridCheckBoxColumn>
                 
-                <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*" Binding="{Binding Id}"/>
+                
                 <DataGridTemplateColumn Header="Foto" IsReadOnly="True" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Border Margin="0,0,0,10"
-                                Width="20" 
-                                Height="20"
+                            <StackPanel Orientation="Horizontal">
+                                <Border
+                                Width="25" 
+                                Height="25"
                                 Background="White" 
                                 CornerRadius="100"
-                                DockPanel.Dock="Top">
-                                <Ellipse>
-                                    <Ellipse.Fill>
-                                        <ImageBrush ImageSource="../../Images/left_login.jpg"/>
-                                    </Ellipse.Fill>
-                                </Ellipse>
-                            </Border>
+                                VerticalAlignment="Center">
+                                    <Ellipse>
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="../../Images/left_login.jpg"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Border>
+                                <TextBlock Text="{Binding Persona}" VerticalAlignment="Center"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Ingreso" IsReadOnly="True" Width="*"/>
-                <DataGridTextColumn Header="Correo" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Ingreso" IsReadOnly="True" Width="*" Binding="{Binding Ingreso}"/>
+                <DataGridTextColumn Header="Correo" IsReadOnly="True" Width="*" Binding="{Binding Correo}"/>
 
                 <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
@@ -57,7 +61,7 @@
                                 <Button Style="{StaticResource gridEditButton}">
                                     <Icon:PackIconMaterial Foreground="White" Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
-                                <Button Style="{StaticResource gridRemoveButton}">
+                                <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0">
                                     <Icon:PackIconMaterial Foreground="White" Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
                             </StackPanel>

@@ -26,17 +26,17 @@ namespace INTERMODULAR.MVVM.View
         {
             InitializeComponent();
 
-            List<PruebaModel> usuarios = new List<PruebaModel>();
-            usuarios.Add(new PruebaModel("1", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("2", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("3", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("4", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("5", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("6", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("7", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("8", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("9", "algun dia", "example@gmail.com"));
-            usuarios.Add(new PruebaModel("10", "algun dia", "example@gmail.com"));
+            ObservableCollection<PruebaModel> usuarios = new ObservableCollection<PruebaModel>();
+            usuarios.Add(new PruebaModel { Id = "1", Persona = "Hajar Oviedo", Ingreso = "03/02/2023", Correo="example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "2", Persona = "Josue Yuste", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "3", Persona = "Felix Paz", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "4", Persona = "Francesc Checa", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "5", Persona = "Judit Berenguer", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "6", Persona = "Delia Batista", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "7", Persona = "Teresa de Leon", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "8", Persona = "Noel Arnaiz", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "9", Persona = "Clotilde Barrios", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
+            usuarios.Add(new PruebaModel { Id = "10", Persona = "Estela Solana", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
 
             usuariosDataGrid.ItemsSource = usuarios;
         }
@@ -44,19 +44,11 @@ namespace INTERMODULAR.MVVM.View
 
     public class PruebaModel
     {
-        private string id;
-        private string ingreso;
-        private string correo;
+        public string Id { get; set; }
+        public string Persona { get; set; }
+        public string Ingreso { get; set; }
+        public string Correo { get; set; }
         
-        public string Id { get => id; set => id = value; }
-        public string Ingreso { get => ingreso; set => ingreso = value; }
-        public string Correo { get => correo; set => correo = value; }
-
-        public PruebaModel(string id, string ingreso, string correo)
-        {
-            this.id = id;
-            this.ingreso = ingreso;
-            this.correo = correo;
-        }
+       
     }
 }
