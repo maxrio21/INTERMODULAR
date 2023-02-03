@@ -3,12 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
+             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
+             xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.DataContext>
+        <viewModel:MainViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
-        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}">
-            
+        <DataGrid Style="{DynamicResource DataGridStyle1}" 
+                  CellStyle="{DynamicResource DataGridCellStyle1}" 
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                  RowStyle="{DynamicResource DataGridRowStyle1}"
+                  x:Name="usuariosDataGrid">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn CanUserResize="False" Width="Auto">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox/>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+                
+                <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*"/>
+                <DataGridTemplateColumn Header="Foto" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,10"
+                                Width="20" 
+                                Height="20"
+                                Background="White" 
+                                CornerRadius="100"
+                                DockPanel.Dock="Top">
+                                <Ellipse>
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="../../Images/left_login.jpg"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Ingreso" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Correo" IsReadOnly="True" Width="*"/>
+
+                <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource gridEditButton}">
+                                    <Icon:PackIconMaterial Foreground="White" Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                                <Button Style="{StaticResource gridRemoveButton}">
+                                    <Icon:PackIconMaterial Foreground="White" Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </UserControl>

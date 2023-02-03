@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel"
         mc:Ignorable="d" 
         Height="650" 
         Width="1000"
@@ -14,6 +15,11 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
     <Border CornerRadius="30,30,30,30">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -34,14 +40,16 @@
             <Border CornerRadius="30,30,30,30" Grid.Column="0">
                 <Grid Margin="0,0,0,10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="87*"/>
-                        <RowDefinition Height="73*"/>
+                        <RowDefinition Height="39*"/>
+                        <RowDefinition Height="41*"/>
                     </Grid.RowDefinitions>
                     <DockPanel Grid.Column="0" 
                                VerticalAlignment="Center" 
-                               Height="260">
+                               Height="292">
 
-                        <Border DockPanel.Dock="Top" Width="auto" Height="70" Margin="10,0,10,10">
+                        <Border DockPanel.Dock="Top" 
+                                Width="auto" Height="90" 
+                                Margin="10,0,10,10">
                             <Border.Background>
                                 <ImageBrush Stretch="Uniform" ImageSource="/Images/LogoEnteroBlanco.png"/>
                             </Border.Background>
@@ -71,8 +79,8 @@
                     </DockPanel>
 
                     <StackPanel Grid.Row="1" Margin="0,2,0,90">
-                        <RadioButton Style="{StaticResource homeBtn}" Content="Home"/>
-                        <RadioButton Style="{StaticResource userBtn}" Content="Usuarios"/>
+                        <RadioButton Style="{StaticResource homeBtn}" Content="Home" IsChecked="True" Command="{Binding HomeVC}"/>
+                        <RadioButton Style="{StaticResource userBtn}" Content="Usuarios" Command="{Binding UserVC}"/>
                         <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas"/>
                         <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
@@ -87,8 +95,8 @@
                 <ContentControl Grid.ColumnSpan="1" 
                                 Grid.Column="1" 
                                 Grid.Row="1"
-                                Margin="10">
-                    
+                                Margin="10"
+                                Content="{Binding CurrentView}">
                 </ContentControl>
 
             </Border>
