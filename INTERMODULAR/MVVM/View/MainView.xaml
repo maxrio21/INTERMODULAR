@@ -14,12 +14,13 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        >
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    
+
     <Border CornerRadius="30,30,30,30">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -90,15 +91,13 @@
             </Border>
 
             <Border CornerRadius="30,30,30,30" Grid.RowSpan="2" Grid.Column="1"
-                Background="White" 
->
+                Background="White">
+                
                 <ContentControl Grid.ColumnSpan="1" 
-                                Grid.Column="1" 
-                                Grid.Row="1"
-                                Margin="10"
-                                Content="{Binding CurrentView}">
-                </ContentControl>
-
+                            Grid.Row="1"
+                            Margin="30,30,30,30"
+                            Content="{Binding CurrentView}"/>
+                
             </Border>
         </Grid>
     </Border>
