@@ -8,14 +8,16 @@ namespace INTERMODULAR.MVVM.Model
 {
     public class UserModel
     {
-        public string Id { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        //public string FechaAlta { get; set; }
-        //public string[] Siguiendo { get; set; }
-        //public string Foto { get; set; }
-        //public bool Admin { get; set; }
+        public string _id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string password { get; set; }
+        public string email { get; set; }
+        public string fecha { get; set; }
+        public string hora { get; set; }
+        public string[] siguiendo { get; set; }
+        public string foto { get; set; }
+        public bool admin { get; set; }
+        //public int __v {get; set;}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using INTERMODULAR.MVVM.Model;
+using INTERMODULAR.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,7 @@ namespace INTERMODULAR.MVVM.View
         public UserView()
         {
             InitializeComponent();
+            this.DataContext = new MainViewModel();
 
             ObservableCollection<PruebaModel> usuarios = new ObservableCollection<PruebaModel>();
             usuarios.Add(new PruebaModel { Id = "1", Persona = "Hajar Oviedo", Ingreso = "03/02/2023", Correo="example@gmail.com" });

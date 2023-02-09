@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Security.Policy;
 using System.Text.Json.Nodes;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace INTERMODULAR.MVVM.Repositories
 {
@@ -54,9 +55,29 @@ namespace INTERMODULAR.MVVM.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UserModel> GetByAll()
+        public async Task<IEnumerable<UserModel>> GetByAll()
         {
-            throw new NotImplementedException();
+            UserModel userModel = new UserModel();
+            ObservableCollection<UserModel> usuarios = new ObservableCollection<UserModel>();
+
+            var client = new RestClient("http://localhost:3000/");
+            var req = new RestRequest("api/users", Method.Get);
+            req.RequestFormat = RestSharp.DataFormat.Json;
+
+            var res = client.Execute(req);
+
+            if (!res.IsSuccessStatusCode)
+            {
+                return usuarios;
+            }
+
+            var json = res.Content;
+            foreach(var item in JsonConvert.DeserializeObject<TokenModel>(json).data)
+            {
+                usuarios.Add(JsonConvert.DeserializeObject<UserModel>(item));
+            }
+
+            return usuarios;
         }
 
         public UserModel GetByID(int id)

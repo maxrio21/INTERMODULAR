@@ -15,6 +15,6 @@ namespace INTERMODULAR.MVVM.Model
         void Remove(int id);
         UserModel GetByID(int id);
         UserModel GetByUsername(string username);
-        IEnumerable<UserModel> GetByAll();
+        Task<IEnumerable<UserModel>> GetByAll();
     }
 }
