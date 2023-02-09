@@ -27,8 +27,8 @@ namespace INTERMODULAR.MVVM.View
         {
             InitializeComponent();
             this.DataContext = new MainViewModel();
-
-            ObservableCollection<PruebaModel> usuarios = new ObservableCollection<PruebaModel>();
+            usuariosDataGrid.ItemsSource = ((MainViewModel)this.DataContext).RellenarTablaUsuarios();
+            /*ObservableCollection<PruebaModel> usuarios = new ObservableCollection<PruebaModel>();
             usuarios.Add(new PruebaModel { Id = "1", Persona = "Hajar Oviedo", Ingreso = "03/02/2023", Correo="example@gmail.com" });
             usuarios.Add(new PruebaModel { Id = "2", Persona = "Josue Yuste", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
             usuarios.Add(new PruebaModel { Id = "3", Persona = "Felix Paz", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
@@ -67,7 +67,7 @@ namespace INTERMODULAR.MVVM.View
             usuarios.Add(new PruebaModel { Id = "8", Persona = "Noel Arnaiz", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
             usuarios.Add(new PruebaModel { Id = "9", Persona = "Clotilde Barrios", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
             usuarios.Add(new PruebaModel { Id = "10", Persona = "Estela Solana", Ingreso = "03/02/2023", Correo = "example@gmail.com" });
-            usuariosDataGrid.ItemsSource = usuarios;
+            usuariosDataGrid.ItemsSource = usuarios;*/
         }
     }
 
