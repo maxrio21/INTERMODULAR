@@ -57,6 +57,7 @@ namespace INTERMODULAR.MVVM.Repositories
 
         public async Task<IEnumerable<UserModel>> GetByAll()
         {
+            var hola = "Borrame es para que se suban los cambios a git";
             UserModel userModel = new UserModel();
             ObservableCollection<UserModel> usuarios = new ObservableCollection<UserModel>();
 
