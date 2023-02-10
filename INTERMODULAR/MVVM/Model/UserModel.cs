@@ -18,6 +18,6 @@ namespace INTERMODULAR.MVVM.Model
         public string[] siguiendo { get; set; }
         public string foto { get; set; }
         public bool admin { get; set; }
-        //public int __v {get; set;}
+        public int __v {get; set;}
     }
 }

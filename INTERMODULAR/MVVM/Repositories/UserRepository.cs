@@ -73,9 +73,15 @@ namespace INTERMODULAR.MVVM.Repositories
             }
 
             var json = res.Content;
-            foreach(var item in JsonConvert.DeserializeObject<TokenModel>(json).data)
+
+            var usuarios_get = JsonConvert.DeserializeObject<ResponseModel>(json);
+            /*for (int i = 0; i < usuarios_get.data.Length ; i++)
             {
-                usuarios.Add(JsonConvert.DeserializeObject<UserModel>(item));
+                usuarios.Add(JsonConvert.DeserializeObject<UserModel>(JsonConvert.SerializeObject(usuarios_get.data[i])));
+            }*/
+            foreach (var item in usuarios_get.data)
+            {
+                usuarios.Add(JsonConvert.DeserializeObject<UserModel>(JsonConvert.SerializeObject(item)));
             }
 
             return usuarios;
