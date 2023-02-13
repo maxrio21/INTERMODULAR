@@ -1,11 +1,13 @@
 ﻿using INTERMODULAR.MVVM.Model;
 using INTERMODULAR.MVVM.Repositories;
+using INTERMODULAR.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace INTERMODULAR.MVVM.ViewModel
 {
@@ -14,11 +16,13 @@ namespace INTERMODULAR.MVVM.ViewModel
         IUserRepository userRepository;
         public ViewModelCommand HomeVC{ get; set; }
         public ViewModelCommand UserVC { get; set; }
+        public ViewModelCommand UserEditVC { get; set; }   
 
         public HomeViewModel HomeVM { get; set; }
         public UserViewModel UserVM { get; set; }
+        public UserEditViewModel UserEditVM { get; set; }
 
-        private object _currentView;
+        public object _currentView;
 
         public object CurrentView
         {
@@ -30,8 +34,13 @@ namespace INTERMODULAR.MVVM.ViewModel
         public MainViewModel()
         {
             userRepository = new UserRepository();
+
             HomeVM = new HomeViewModel();
             UserVM = new UserViewModel();
+            
+
+            //UserEditVM = new UserEditViewModel(userRepository.GetByID(id).Result);
+
             CurrentView = HomeVM;
 
             HomeVC = new ViewModelCommand(o => 
@@ -43,22 +52,16 @@ namespace INTERMODULAR.MVVM.ViewModel
             {
                 CurrentView = UserVM;
             });
-        }
 
-        public ObservableCollection<DGUserModel> RellenarTablaUsuarios()
-        {
-            ObservableCollection<DGUserModel> usuarios = new ObservableCollection<DGUserModel>();
-            foreach (var user in userRepository.GetByAll().Result)
+            UserEditVC = new ViewModelCommand(o => /*Revisar, probalemente funcione pero la api ha sido cambiada.*/
             {
-                usuarios.Add(new DGUserModel 
-                { 
-                    Id = user._id, 
-                    Persona = (user.nombre + "" + user.apellido),
-                    Ingreso = user.fecha,
-                    Correo = user.email
-                });
-            }
-            return usuarios;
+                var id = o.ToString();
+
+                var usuario = userRepository.GetByID(id).Result;
+
+                UserEditVM = new UserEditViewModel(usuario);
+                CurrentView = UserEditVM;
+            });
         }
     }
 }

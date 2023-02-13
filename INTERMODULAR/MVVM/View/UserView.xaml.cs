@@ -3,6 +3,7 @@ using INTERMODULAR.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,24 @@ namespace INTERMODULAR.MVVM.View
         public UserView()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
-            usuariosDataGrid.ItemsSource = ((MainViewModel)this.DataContext).RellenarTablaUsuarios();
+
+            this.DataContext = new UserViewModel();
+            usuariosDataGrid.ItemsSource = ((UserViewModel)this.DataContext).RellenarTablaUsuarios();
+
+            //this.DataContext = new MainViewModel();
+            //usuariosDataGrid.ItemsSource = ((MainViewModel)this.DataContext).RellenarTablaUsuarios();
+        }
+
+        /*
+        private void EditUserEvent(object sender, RoutedEventArgs e)
+        {
+            DGUserModel row = (DGUserModel)((Button)e.OriginalSource).DataContext;
+            ((MainViewModel)this.DataContext).ModificarUsuario(row.Id);
+        }
+        */
+        private void DeleteUserEvent(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

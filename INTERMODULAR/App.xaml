@@ -377,6 +377,10 @@
                 <view:UserView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:UserEditViewModel}">
+                <view:UserEditView/>
+            </DataTemplate>
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Themes/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="./Themes/Fuentes.xaml"/>

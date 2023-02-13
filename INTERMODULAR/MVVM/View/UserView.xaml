@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="19*"/>
             <RowDefinition Height="10*"/>
@@ -43,6 +43,7 @@
                   RowStyle="{DynamicResource DataGridRowStyle1}"
                   x:Name="usuariosDataGrid" Grid.Row="2" Margin="0,10,0,0">
             <DataGrid.Columns>
+                <!--
                 <DataGridCheckBoxColumn CanUserResize="False" Width="Auto">
                     <DataGridCheckBoxColumn.HeaderTemplate>
                         <DataTemplate>
@@ -50,16 +51,16 @@
                         </DataTemplate>
                     </DataGridCheckBoxColumn.HeaderTemplate>
                 </DataGridCheckBoxColumn>
+                -->
+                <DataGridTextColumn Header="Id" IsReadOnly="True" Width="Auto" Binding="{Binding Id}"/>
 
-                <DataGridTextColumn Header="Id" IsReadOnly="True" Width="*" Binding="{Binding Id}"/>
-
-                <DataGridTemplateColumn Header="Foto" IsReadOnly="True" Width="*">
+                <DataGridTemplateColumn Header="Perfil" IsReadOnly="True" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <Border
-                                Width="25" 
-                                Height="25"
+                                Width="40" 
+                                Height="40"
                                 Background="White" 
                                 CornerRadius="100"
                                 VerticalAlignment="Center">
@@ -69,22 +70,24 @@
                                         </Ellipse.Fill>
                                     </Ellipse>
                                 </Border>
-                                <TextBlock Text="{Binding Persona}" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Persona}" VerticalAlignment="Center" Margin="10 0 0 0"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Ingreso" IsReadOnly="True" Width="*" Binding="{Binding Ingreso}"/>
-                <DataGridTextColumn Header="Correo" IsReadOnly="True" Width="*" Binding="{Binding Correo}"/>
+                <DataGridTextColumn Header="Ingreso" IsReadOnly="True" Width="Auto" Binding="{Binding Ingreso}"/>
+                <DataGridTextColumn Header="Correo" IsReadOnly="True" Width="Auto" Binding="{Binding Correo}"/>
 
-                <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource gridEditButton}">
+                                           <!--{StaticResource gridEditButton}" Command="{Binding DataContext.UserEditVC, RelativeSource={RelativeSource AncestorType=local:MainView}}UserView-->
+                                <Button Style="{StaticResource gridEditButton}" Command="{Binding DataContext.UserEditVC, RelativeSource={RelativeSource AncestorType=local:MainView}}" CommandParameter="{Binding Path=Id}">
                                     <Icon:PackIconMaterial Foreground="White" Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                    
                                 </Button>
-                                <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0">
+                                <Button Style="{StaticResource gridRemoveButton}"  Margin="5 0 0 0" Click="DeleteUserEvent">
                                     <Icon:PackIconMaterial Foreground="White" Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
                             </StackPanel>

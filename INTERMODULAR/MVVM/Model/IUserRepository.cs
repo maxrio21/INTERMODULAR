@@ -12,8 +12,8 @@ namespace INTERMODULAR.MVVM.Model
         Task<bool> AuthenticateUser(NetworkCredential credential);
         void Add(UserModel userModel);
         void Edit(UserModel userModel);
-        void Remove(int id);
-        UserModel GetByID(int id);
+        Task Remove(string id);
+        Task<UserModel> GetByID(string id);
         UserModel GetByUsername(string username);
         Task<IEnumerable<UserModel>> GetByAll();
     }

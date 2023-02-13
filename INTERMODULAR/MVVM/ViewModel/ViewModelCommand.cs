@@ -16,7 +16,12 @@ namespace INTERMODULAR.MVVM.ViewModel
         {
             _executeAction = executeAction;
             _canExecuteAction = null;
+        }
 
+        public ViewModelCommand(Action<object> executeAction, object model)
+        {
+            _executeAction = executeAction;
+            _canExecuteAction = null;
         }
 
         public ViewModelCommand(Action<object> executeAction, Predicate<object> canExecuteAction)

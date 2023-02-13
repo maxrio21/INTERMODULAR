@@ -57,7 +57,6 @@ namespace INTERMODULAR.MVVM.Repositories
 
         public async Task<IEnumerable<UserModel>> GetByAll()
         {
-            var hola = "Borrame es para que se suban los cambios a git";
             UserModel userModel = new UserModel();
             ObservableCollection<UserModel> usuarios = new ObservableCollection<UserModel>();
 
@@ -75,10 +74,7 @@ namespace INTERMODULAR.MVVM.Repositories
             var json = res.Content;
 
             var usuarios_get = JsonConvert.DeserializeObject<ResponseModel>(json);
-            /*for (int i = 0; i < usuarios_get.data.Length ; i++)
-            {
-                usuarios.Add(JsonConvert.DeserializeObject<UserModel>(JsonConvert.SerializeObject(usuarios_get.data[i])));
-            }*/
+
             foreach (var item in usuarios_get.data)
             {
                 usuarios.Add(JsonConvert.DeserializeObject<UserModel>(JsonConvert.SerializeObject(item)));
@@ -87,9 +83,29 @@ namespace INTERMODULAR.MVVM.Repositories
             return usuarios;
         }
 
-        public UserModel GetByID(int id)
+        public async Task<UserModel> GetByID(string id)
         {
-            throw new NotImplementedException();
+            UserModel usuario = new UserModel();
+
+            var client = new RestClient("http://localhost:3000/");
+            var req = new RestRequest("api/users/" + id, Method.Get);
+            req.RequestFormat = RestSharp.DataFormat.Json;
+
+            var res = client.Execute(req);
+
+            if (!res.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
+                return usuario;
+            }
+
+            var json = res.Content;
+
+            //Obtiene el data del modelo
+            var usuarios_get = JsonConvert.DeserializeObject<ResponseModel>(json);
+
+            //Obtiene el modelo del usuario
+            return usuario = JsonConvert.DeserializeObject<UserModel>(JsonConvert.SerializeObject(usuarios_get.data[0]));
         }
 
         public UserModel GetByUsername(string username)
@@ -97,8 +113,19 @@ namespace INTERMODULAR.MVVM.Repositories
             throw new NotImplementedException();
         }
 
-        public void Remove(int id)
+        public async Task Remove(string id)
         {
+            var client = new RestClient("http://localhost:3000/");
+            var req = new RestRequest("api/users/" + id, Method.Delete);
+            req.RequestFormat = RestSharp.DataFormat.Json;
+
+            var res = client.Execute(req);
+
+            if (!res.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
+            }
+
             throw new NotImplementedException();
         }
     }
