@@ -87,8 +87,8 @@
                                     <Icon:PackIconMaterial Foreground="White" Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
                                     
                                 </Button>
-                                <Button Style="{StaticResource gridRemoveButton}"  Margin="5 0 0 0" Click="DeleteUserEvent">
-                                    <Icon:PackIconMaterial Foreground="White" Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                <Button Style="{StaticResource gridRemoveButton}" Command="{Binding DataContext.DeleteUserVC, RelativeSource={RelativeSource AncestorType=local:MainView}}" CommandParameter="{Binding Path=Id}" Margin="5 0 0 0" Click="DeleteUserEvent">
+                                    <Icon:PackIconMaterial Foreground="White"  Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

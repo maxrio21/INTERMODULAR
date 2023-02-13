@@ -1,6 +1,7 @@
 ﻿using INTERMODULAR.MVVM.Model;
 using INTERMODULAR.MVVM.Repositories;
 using INTERMODULAR.MVVM.View;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +17,9 @@ namespace INTERMODULAR.MVVM.ViewModel
         IUserRepository userRepository;
         public ViewModelCommand HomeVC{ get; set; }
         public ViewModelCommand UserVC { get; set; }
-        public ViewModelCommand UserEditVC { get; set; }   
+        public ViewModelCommand UserEditVC { get; set; } 
+        public ViewModelCommand DeleteUserVC { get; set; }
+ 
 
         public HomeViewModel HomeVM { get; set; }
         public UserViewModel UserVM { get; set; }
@@ -37,7 +40,6 @@ namespace INTERMODULAR.MVVM.ViewModel
 
             HomeVM = new HomeViewModel();
             UserVM = new UserViewModel();
-            
 
             //UserEditVM = new UserEditViewModel(userRepository.GetByID(id).Result);
 
@@ -59,8 +61,22 @@ namespace INTERMODULAR.MVVM.ViewModel
 
                 var usuario = userRepository.GetByID(id).Result;
 
-                UserEditVM = new UserEditViewModel(usuario);
+                Application.Current.Properties["EDITUSER"] = usuario;
+                //var rec_usuario = Application.Current.Properties["EDITUSER"] as UserModel;
+                //MessageBox.Show(rec_usuario._id);
+
+                UserEditVM = new UserEditViewModel();
                 CurrentView = UserEditVM;
+            });
+
+            DeleteUserVC = new ViewModelCommand(o => 
+            {
+                var id = o.ToString();
+
+                if (MessageBox.Show("¿Deseas borrar al usuario?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    userRepository.Remove(id);
+                }
             });
         }
     }

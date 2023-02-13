@@ -21,16 +21,6 @@ namespace INTERMODULAR.MVVM.ViewModel
         public UserViewModel()
         {
             userRepository = new UserRepository();
-            UserEditVM = new UserEditViewModel();
-
-            UserEditVC = new ViewModelCommand(o =>
-            {
-                MessageBox.Show("Llega");
-                MainVM = new MainViewModel();
-                MainVM.UserEditVM = UserEditVM;
-                MainVM.UserEditVC = this.UserEditVC;
-                MainVM.CurrentView = UserEditVM;
-            });
 
             //UserEditVM = new UserEditViewModel(userRepository.GetByID(id).Result);
         }

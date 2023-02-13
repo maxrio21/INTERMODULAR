@@ -23,15 +23,16 @@ namespace INTERMODULAR.MVVM.ViewModel
         public UserEditViewModel()
         {
             userRepository = new UserRepository();
+            this.usuario = Application.Current.Properties["EDITUSER"] as UserModel;
 
             DeleteVC = new ViewModelCommand(o =>
             {
-                MessageBox.Show("Llega");
+                MessageBox.Show("Intentando borrar el usuario: " + usuario._id.ToString());
                 userRepository.Remove(usuario._id.ToString());
             });
         }
 
-        public UserEditViewModel(UserModel usuario)
+        /*public UserEditViewModel(UserModel usuario)
         {
             userRepository = new UserRepository();
 
@@ -43,6 +44,6 @@ namespace INTERMODULAR.MVVM.ViewModel
                 MessageBox.Show("Llega");
                 userRepository.Remove(usuario._id.ToString());
             });
-        }
+        }*/
     }
 }

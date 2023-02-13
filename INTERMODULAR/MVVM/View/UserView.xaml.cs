@@ -44,7 +44,7 @@ namespace INTERMODULAR.MVVM.View
         */
         private void DeleteUserEvent(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 
