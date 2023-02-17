@@ -389,6 +389,10 @@
             <DataTemplate DataType="{x:Type viewModel:UserEditViewModel}">
                 <view:UserEditView/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:PubliViewModel}">
+                <view:PubliView/>
+            </DataTemplate>
             
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Themes/MenuButtonTheme.xaml"/>

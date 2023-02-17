@@ -1,5 +1,4 @@
-﻿using INTERMODULAR.MVVM.Model;
-using INTERMODULAR.MVVM.Repositories;
+﻿using INTERMODULAR.MVVM.Repositories;
 using INTERMODULAR.MVVM.View;
 using Newtonsoft.Json.Linq;
 using System;
@@ -15,15 +14,17 @@ namespace INTERMODULAR.MVVM.ViewModel
     class MainViewModel : ViewModelBase
     {
         IUserRepository userRepository;
-        public ViewModelCommand HomeVC{ get; set; }
+        public ViewModelCommand HomeVC { get; set; }
         public ViewModelCommand UserVC { get; set; }
-        public ViewModelCommand UserEditVC { get; set; } 
+        public ViewModelCommand UserEditVC { get; set; }
+        public ViewModelCommand PubliVC { get; set; }
         public ViewModelCommand DeleteUserVC { get; set; }
- 
+
 
         public HomeViewModel HomeVM { get; set; }
         public UserViewModel UserVM { get; set; }
         public UserEditViewModel UserEditVM { get; set; }
+        public PubliViewModel PubliVM { get; set; }
 
         public object _currentView;
 
@@ -40,6 +41,7 @@ namespace INTERMODULAR.MVVM.ViewModel
 
             HomeVM = new HomeViewModel();
             UserVM = new UserViewModel();
+            PubliVM = new PubliViewModel();
 
             //UserEditVM = new UserEditViewModel(userRepository.GetByID(id).Result);
 
@@ -67,6 +69,11 @@ namespace INTERMODULAR.MVVM.ViewModel
 
                 UserEditVM = new UserEditViewModel();
                 CurrentView = UserEditVM;
+            });
+
+            PubliVC = new ViewModelCommand(o =>
+            {
+                CurrentView = PubliVM;
             });
 
             DeleteUserVC = new ViewModelCommand(o => 

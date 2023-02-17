@@ -1,5 +1,4 @@
-﻿using INTERMODULAR.MVVM.Model;
-using INTERMODULAR.MVVM.Repositories;
+﻿using INTERMODULAR.MVVM.Repositories;
 using INTERMODULAR.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;

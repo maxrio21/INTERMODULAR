@@ -82,7 +82,7 @@
                     <StackPanel Grid.Row="1" Margin="0,2,0,90">
                         <RadioButton Style="{StaticResource homeBtn}" Content="Home" IsChecked="True" Command="{Binding HomeVC}"/>
                         <RadioButton Style="{StaticResource userBtn}" Content="Usuarios" Command="{Binding UserVC}"/>
-                        <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas"/>
+                        <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas" Command="{Binding PubliVC}"/>
                         <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
                     <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" Margin="0,258,0,0"/>

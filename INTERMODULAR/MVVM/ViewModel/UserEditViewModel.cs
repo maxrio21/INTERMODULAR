@@ -15,9 +15,7 @@ namespace INTERMODULAR.MVVM.ViewModel
 
         IUserRepository userRepository;
         public UserModel usuario { get; set; }
-
         
-
         public ViewModelCommand DeleteVC { get; set; }
 
         public UserEditViewModel()
@@ -32,19 +30,5 @@ namespace INTERMODULAR.MVVM.ViewModel
 
             });
         }
-
-        /*public UserEditViewModel(UserModel usuario)
-        {
-            userRepository = new UserRepository();
-
-            this.usuario = usuario;
-            MessageBox.Show(usuario._id.ToString());
-
-            DeleteVC = new ViewModelCommand(o =>
-            {
-                MessageBox.Show("Llega");
-                userRepository.Remove(usuario._id.ToString());
-            });
-        }*/
     }
 }
