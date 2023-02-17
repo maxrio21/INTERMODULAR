@@ -4,8 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using INTERMODULAR.MVVM.Model;
 
-namespace INTERMODULAR.MVVM.Model
+namespace INTERMODULAR.MVVM.Repositories
 {
     public interface IUserRepository
     {

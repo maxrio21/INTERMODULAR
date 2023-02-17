@@ -14,7 +14,7 @@ using System.Collections.ObjectModel;
 
 namespace INTERMODULAR.MVVM.Repositories
 {
-    public class UserRepository : RepositoryBase, IUserRepository
+    public class UserRepository : IUserRepository
     {
         public void Add(UserModel userModel)
         {
