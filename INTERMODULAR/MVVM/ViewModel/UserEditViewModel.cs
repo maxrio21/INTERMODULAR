@@ -29,6 +29,7 @@ namespace INTERMODULAR.MVVM.ViewModel
             {
                 MessageBox.Show("Intentando borrar el usuario: " + usuario._id.ToString());
                 userRepository.Remove(usuario._id.ToString());
+
             });
         }
 

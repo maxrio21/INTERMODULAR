@@ -31,6 +31,11 @@ namespace INTERMODULAR.MVVM.View
             
             this.DataContext = new UserEditViewModel();
 
+            var usuario = ((UserEditViewModel)this.DataContext).usuario;
+
+            username.Text = usuario._id;
+            name.Text = usuario.nombre;
+            lastname.Text = usuario.apellido;
         }
     }
 }
