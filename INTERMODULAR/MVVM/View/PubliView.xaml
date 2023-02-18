@@ -7,13 +7,39 @@
              mc:Ignorable="d" 
              d:DesignHeight="590" d:DesignWidth="718">
     <Grid Background="#FFEFEFEF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="121*"/>
+        </Grid.RowDefinitions>
         <!--<Button Content="Mostrar comentarios" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Command="{Binding ShowVC}"/>-->
-        <StackPanel x:Name="panel_rutas" 
+        <TextBlock Text="Publicaciones" 
+                   FontSize="32" 
+                   FontWeight="SemiBold" 
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left" 
+                   Foreground="#121518" 
+                   Height="42"
+                   Grid.Row="0"/>
+
+        <TextBlock Text="Listado de publicaciones registradas" 
+                   FontSize="22" 
+                   FontWeight="Light" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left" 
+                   Foreground="#717374"
+                   Height="28" 
+                   Grid.Row="1"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Row="2" Height="Auto" VirtualizingPanel.ScrollUnit="Pixel">
+            <StackPanel x:Name="panel_rutas" 
                     Orientation="Vertical" 
                     Height="Auto" 
                     Width="Auto" 
-                    Margin="20">
-            <!--
+                    Margin="0,13,10,13"
+                    />
+        </ScrollViewer>
+        
+        <!--
             <Border CornerRadius="10" 
                     Background="White" 
                     Height="250" 
@@ -29,7 +55,6 @@
                         <RowDefinition Height="35*"/>
                         <RowDefinition Height="45*"/>
                         <RowDefinition Height="84*"/>
-                        <RowDefinition Height="6*"/>
                         <RowDefinition Height="40*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Titulo" 
@@ -69,9 +94,9 @@
                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit vo" Grid.Row="2" Margin="0,12,0,0" Grid.RowSpan="2"/>
                     <Border Grid.Row="0" 
                             Grid.RowSpan="2" 
-                            Width="70" 
+                            Width="79" 
                             HorizontalAlignment="Left"
-                            CornerRadius="6" Margin="568,5,0,5">
+                            CornerRadius="6" Margin="559,0,0,0">
                         <Border.Background>
                             <ImageBrush ImageSource="../../Images/left_login.jpg"/>
                         </Border.Background>
@@ -79,6 +104,6 @@
                 </Grid>
             </Border>
             -->
-        </StackPanel>
+
     </Grid>
 </UserControl>

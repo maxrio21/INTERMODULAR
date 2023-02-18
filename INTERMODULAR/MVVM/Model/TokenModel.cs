@@ -17,4 +17,10 @@ namespace INTERMODULAR.MVVM.Model
         public string status { get; set; }
         public UserModel[] data { get; set; }
     }
+
+    public class ResponsePostModel
+    {
+        public string status { get; set; }
+        public PostModel[] data { get; set; }
+    }
 }

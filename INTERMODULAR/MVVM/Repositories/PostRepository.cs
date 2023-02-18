@@ -44,7 +44,7 @@ namespace INTERMODULAR.MVVM.Repositories
 
             var json = res.Content;
 
-            var posts_get = JsonConvert.DeserializeObject<ResponseModel>(json);
+            var posts_get = JsonConvert.DeserializeObject<ResponsePostModel>(json);
 
             foreach (var item in posts_get.data)
             {

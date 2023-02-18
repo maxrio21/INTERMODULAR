@@ -16,7 +16,7 @@ namespace INTERMODULAR.MVVM.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public void Add(UserModel userModel)
+        public async Task Add(UserModel userModel)
         {
             throw new NotImplementedException();
         }
@@ -34,7 +34,6 @@ namespace INTERMODULAR.MVVM.Repositories
            
 
             var res = client.Execute(req);
-            var content = res.Content;
 
             if(res.IsSuccessStatusCode)
             {
@@ -50,9 +49,48 @@ namespace INTERMODULAR.MVVM.Repositories
 
         }
 
-        public void Edit(UserModel userModel)
+        public async Task Edit(string username, string name, string lastname)
         {
-            throw new NotImplementedException();
+            /*
+            var user = this.GetByID(username).Result;
+            user.nombre = name;
+            user.apellido = lastname;
+
+            var client = new RestClient("http://localhost:3000/");
+            var req = new RestRequest("api/users/" + username, Method.Put);
+            var json = JsonConvert.SerializeObject(user);
+            req.AddJsonBody(json);
+            MessageBox.Show(json);
+            var res = client.Execute(req);
+
+            req.AddParameter("nombre",name, ParameterType.RequestBody);
+            req.AddParameter("apellido",lastname, ParameterType.RequestBody);
+            */
+
+            PutModel put = new PutModel();
+            put.nombre = name;
+            put.apellido = lastname;
+
+            var client = new RestClient("http://localhost:3000/");
+            var req = new RestRequest("api/users/" + username, Method.Put);
+            req.AddHeader("Accept", "application/json");
+            req.AddJsonBody(JsonConvert.SerializeObject(put));
+
+            var res = client.Execute(req);
+
+
+            foreach(var i in req.Parameters)
+            {
+                MessageBox.Show(i.ToString());
+            }
+            //MessageBox.Show(user._id);
+            MessageBox.Show(username);
+
+            if (!res.IsSuccessStatusCode)
+            {
+                MessageBox.Show("No se ha podido modificar el usuario. " + res.StatusCode.ToString());
+                return;
+            }
         }
 
         public async Task<IEnumerable<UserModel>> GetByAll()

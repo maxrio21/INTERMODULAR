@@ -1,4 +1,5 @@
-﻿using INTERMODULAR.MVVM.Repositories;
+﻿using INTERMODULAR.MVVM.Model;
+using INTERMODULAR.MVVM.Repositories;
 using INTERMODULAR.MVVM.View;
 using Newtonsoft.Json.Linq;
 using System;
@@ -75,6 +76,8 @@ namespace INTERMODULAR.MVVM.ViewModel
             {
                 CurrentView = PubliVM;
             });
+
+            //Utilizamos este comando para editar el usuario en la base de datos con un put
 
             DeleteUserVC = new ViewModelCommand(o => 
             {

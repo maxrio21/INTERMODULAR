@@ -45,7 +45,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Grid.Column="1" Height="16" Width="280" FontWeight="Bold"/>
-                <TextBox x:Name="username" Style="{StaticResource customTextBox}" Margin="0,91,0,0" TextWrapping="Wrap" Text="..." Width="280" Grid.Column="1" HorizontalAlignment="Center" BorderThickness="0,0,0,2">
+                <TextBox x:Name="username" Style="{StaticResource customTextBox}" Margin="0,91,0,0" TextWrapping="Wrap" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="280" Grid.Column="1" HorizontalAlignment="Center" BorderThickness="0,0,0,2">
                     <TextBox.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStopCollection>
@@ -57,7 +57,7 @@
                 </TextBox>
 
                 <TextBlock HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Grid.Column="1" Width="280" FontWeight="Bold"/>
-                <TextBox x:Name="name" Style="{StaticResource customTextBox}" TextWrapping="Wrap" Text="..." Width="280" Grid.Column="1" HorizontalAlignment="Center" BorderThickness="0,0,0,2" Margin="0,160,0,0">
+                <TextBox x:Name="name" Style="{StaticResource customTextBox}" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="280" Grid.Column="1" HorizontalAlignment="Center" BorderThickness="0,0,0,2" Margin="0,160,0,0">
                     <TextBox.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStopCollection>
@@ -69,7 +69,7 @@
                 </TextBox>
 
                 <TextBlock HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" Grid.Column="1" Width="280" FontWeight="Bold"/>
-                <TextBox x:Name="lastname" Style="{StaticResource customTextBox}" TextWrapping="Wrap" Text="..." Width="280" Grid.Column="1" HorizontalAlignment="Center" BorderThickness="0,0,0,2" Margin="0,228,0,0">
+                <TextBox x:Name="lastname" Style="{StaticResource customTextBox}" TextWrapping="Wrap" Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}" Width="280" Grid.Column="1" HorizontalAlignment="Center" BorderThickness="0,0,0,2" Margin="0,228,0,0">
                     <TextBox.BorderBrush>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStopCollection>
@@ -81,7 +81,7 @@
                 </TextBox>
 
 
-                <Button Content="Editar usuario" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top" Height="30" Width="280" Command="{Binding DeleteVC}" Grid.Column="1">
+                <Button x:Name="editar_btn" Content="Editar usuario" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top" Height="30" Width="280" Command="{Binding EditVC}" Grid.Column="1">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="15"/>

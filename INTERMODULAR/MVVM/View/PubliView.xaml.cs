@@ -1,4 +1,7 @@
-﻿using INTERMODULAR.MVVM.ViewModel;
+﻿using INTERMODULAR.MVVM.Model;
+using INTERMODULAR.MVVM.Repositories;
+using INTERMODULAR.MVVM.ViewModel;
+using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,65 +28,89 @@ namespace INTERMODULAR.MVVM.View
     /// </summary>
     public partial class PubliView : UserControl
     {
+
         public PubliView()
         {
+            IPostRepository postRepository;
+            postRepository = new PostRepository();
+
             InitializeComponent();
             this.DataContext = new PubliViewModel();
-            this.generate("Titulo","introducza foto","register","17/02/2023","lorem ipsum papa","alguna");
+
+            foreach (var post in postRepository.GetByAll().Result)
+            {
+                var fotos = post.fotos;
+
+                if (fotos.Length == 0)
+                {
+                    this.generate(post.nombre.ToUpper(), "default", post.usuario_id,(post.hora + " " + post.fecha), post.contenido, post.cat);
+                }
+                else
+                {
+                    this.generate(post.nombre.ToUpper(), fotos[0], post.usuario_id, post.fecha, post.contenido, post.cat);
+                }
+            }
         }
+        Border container = new Border();
 
         public void generate(string titulo, string foto, string usuario, string fecha, string descripcion, string categoria)
-        { 
+        {
             //Contenedor principal de la publicacion
             Border container = new Border();
 
             BrushConverter bc = new BrushConverter(); //Utilizamos el brush para poner colores personalizados en hexadecimal
 
             container.Background = (Brush)bc.ConvertFrom("#FFFFFF");
-            container.Height = 250;
+            container.Height = 270;
             container.Width = Double.NaN;
             container.CornerRadius = new CornerRadius(10);
             container.Padding = new Thickness(20);
+            container.Margin = new Thickness(0,0,0,15);
 
             //Sombra del contenedor
             DropShadowBitmapEffect containerEffect = new DropShadowBitmapEffect();
 
             System.Windows.Media.Color color = new System.Windows.Media.Color();
-            color.ScR = 255;
-            color.ScG = 183;
-            color.ScB = 183;
+            color.ScR = 234;
+            color.ScG = 234;
+            color.ScB = 234;
+
+            UIElement uie = new UIElement();
+            uie.Effect = new DropShadowEffect
+            {
+                Color = new System.Windows.Media.Color { A = 218, R = 218, G = 218, B = 218 },
+                Direction = 320,
+                ShadowDepth = 0,
+                Opacity = 0.5
+            };
 
             containerEffect.Color = color;
-            containerEffect.ShadowDepth = 0;
-            container.BitmapEffect = containerEffect;
+            containerEffect.Direction = 0;
+            containerEffect.ShadowDepth = 5;
+            containerEffect.Opacity = 0.5;
+            containerEffect.Softness = 0;
+            container.Effect = uie.Effect; 
+
             //Fin de la sombra del contenedor
             //Fin de contenedor principal de la publicacion
 
             //Grid del contenedor principal
             Grid main_grid = new Grid();
-
-            main_grid.ShowGridLines = false;
-
-            RowDefinition row1 = new RowDefinition();
-            row1.Height = new GridLength(35.0, GridUnitType.Star);
             
+            RowDefinition row1 = new RowDefinition();
             RowDefinition row2 = new RowDefinition();
-            row2.Height = new GridLength(45.0, GridUnitType.Star);
-
             RowDefinition row3 = new RowDefinition();
-            row3.Height = new GridLength(84.0, GridUnitType.Star);
-
             RowDefinition row4 = new RowDefinition();
-            row4.Height = new GridLength(6.0, GridUnitType.Star);
 
-            RowDefinition row5 = new RowDefinition();
-            row5.Height = new GridLength(40.0, GridUnitType.Star);
+            row1.Height = new GridLength(35.0, GridUnitType.Star);   
+            row2.Height = new GridLength(45.0, GridUnitType.Star);
+            row3.Height = new GridLength(84.0, GridUnitType.Star);
+            row4.Height = new GridLength(40.0, GridUnitType.Star);
 
             main_grid.RowDefinitions.Add(row1);
             main_grid.RowDefinitions.Add(row2);
             main_grid.RowDefinitions.Add(row3);
             main_grid.RowDefinitions.Add(row4);
-            main_grid.RowDefinitions.Add(row5);
 
             //Fin del grid del contenedor principal
 
@@ -125,6 +152,7 @@ namespace INTERMODULAR.MVVM.View
 
             TextBlock usuario_tb = new TextBlock();
             usuario_tb.Text = usuario;
+            usuario_tb.FontWeight = FontWeights.Bold;
             TextBlock fecha_tb = new TextBlock();
             fecha_tb.Text = fecha;
 
@@ -134,7 +162,6 @@ namespace INTERMODULAR.MVVM.View
             contenedor_cat.CornerRadius = new CornerRadius(7);
             contenedor_cat.VerticalAlignment = VerticalAlignment.Center;
             contenedor_cat.Height = 22;
-            contenedor_cat.Width = 66;
             Grid.SetRow(contenedor_cat, 3);
 
             TextBlock categoria_tb = new TextBlock();
@@ -143,8 +170,8 @@ namespace INTERMODULAR.MVVM.View
             categoria_tb.VerticalAlignment = VerticalAlignment.Center;
             categoria_tb.Foreground = (Brush)bc.ConvertFrom("#FFFFFF");
             categoria_tb.FontWeight = FontWeights.Bold;
-            categoria_tb.Margin = new Thickness(5,3,5,3);
-
+            categoria_tb.Padding = new Thickness(5,3,5,3);
+                  
             TextBlock descripcion_tb = new TextBlock();
             descripcion_tb.Text = descripcion;
             descripcion_tb.Height = Double.NaN;
@@ -153,22 +180,65 @@ namespace INTERMODULAR.MVVM.View
             Grid.SetRow(descripcion_tb, 2);
             //Fin cabecera
 
-            /*
-             
-            <TextBlock Height="Auto" 
-                        TextWrapping="Wrap"
-                        TextAlignment="Justify"
-                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit vo" Grid.Row="2" Margin="0,12,0,0" Grid.RowSpan="2"/>
-            <Border Grid.Row="0" 
-                    Grid.RowSpan="2" 
-                    Width="70" 
-                    HorizontalAlignment="Left"
-                    CornerRadius="6" Margin="568,5,0,5">
-                <Border.Background>
-                    <ImageBrush ImageSource="../../Images/left_login.jpg"/>
-                </Border.Background>
-            </Border>
-            */
+            Border publicacion_img = new Border();
+            publicacion_img.Width = 70;
+            publicacion_img.Height = 70;
+            publicacion_img.HorizontalAlignment = HorizontalAlignment.Right;
+            publicacion_img.CornerRadius = new CornerRadius(7);
+            publicacion_img.Background = (Brush)bc.ConvertFrom("#808080"); //Borrar aquí lo cambiaremos por la imagen
+            Grid.SetRowSpan(publicacion_img, 2);
+            Grid.SetRow(publicacion_img, 0);       
+            
+            StackPanel opciones = new StackPanel();
+            opciones.Orientation = Orientation.Horizontal;
+
+            Grid.SetRow(opciones, 3);
+
+            Button editBtn = new Button();
+            Button delBtn = new Button();
+
+            Style style = new Style(typeof(Border));
+            style.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3)));
+
+            editBtn.Command = ((PubliViewModel)this.DataContext).EditVC;
+            editBtn.Background = (Brush)bc.ConvertFrom("#FF81CA46");
+            editBtn.BorderThickness = new Thickness(0);
+            editBtn.Resources.Add(typeof(Border), style);
+            editBtn.Height = 22;
+            editBtn.Width = 22;
+            editBtn.Padding = new Thickness(5);
+            editBtn.HorizontalAlignment = HorizontalAlignment.Left;
+
+            delBtn.Command = ((PubliViewModel)this.DataContext).EditVC;
+            delBtn.Background = (Brush)bc.ConvertFrom("#FF81CA46");
+            delBtn.BorderThickness = new Thickness(0);
+            delBtn.Resources.Add(typeof(Border), style);
+            delBtn.Height = 22;
+            delBtn.Width = 22;
+            delBtn.Padding = new Thickness(5);
+            delBtn.Margin = new Thickness(5,0,0,0);
+            delBtn.HorizontalAlignment = HorizontalAlignment.Left;
+
+            var edit_icon = new PackIconMaterial()
+            {
+                Kind = PackIconMaterialKind.PencilOutline,
+                VerticalAlignment = VerticalAlignment.Center,
+                Foreground = (Brush)bc.ConvertFrom("#FFFFFF"),
+                Height = Double.NaN,
+                Width = Double.NaN
+            };
+
+            var del_icon = new PackIconMaterial()
+            {
+                Kind = PackIconMaterialKind.DeleteOutline,
+                VerticalAlignment = VerticalAlignment.Center,
+                Foreground = (Brush)bc.ConvertFrom("#FFFFFF"),
+                Height = Double.NaN,
+                Width = Double.NaN
+            };
+
+            editBtn.Content = edit_icon;
+            delBtn.Content = del_icon;
 
             //Fin primera fila
 
@@ -186,6 +256,11 @@ namespace INTERMODULAR.MVVM.View
             main_grid.Children.Add(contenedor_cat);
             contenedor_cat.Child = categoria_tb;
             main_grid.Children.Add(descripcion_tb);
+            main_grid.Children.Add(publicacion_img);
+            main_grid.Children.Add(opciones);
+            opciones.Children.Add(editBtn);
+            opciones.Children.Add(delBtn);
+
         }
     }
 }

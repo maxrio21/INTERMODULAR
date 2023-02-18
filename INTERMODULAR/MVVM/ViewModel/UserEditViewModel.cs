@@ -14,20 +14,52 @@ namespace INTERMODULAR.MVVM.ViewModel
         //readonly UserModel usuario = new UserModel();
 
         IUserRepository userRepository;
-        public UserModel usuario { get; set; }
-        
-        public ViewModelCommand DeleteVC { get; set; }
+        private string _username;
+        private string _name;
+        private string _lastname;
 
+        public UserModel usuario { get; set; }
+        public ViewModelCommand EditVC { get; set; }
+        public string Username
+        {
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+        }
+        public string Lastname
+        {
+            get => _lastname;
+            set
+            {
+                _lastname = value;
+                OnPropertyChanged(nameof(Lastname));
+            }
+        }
         public UserEditViewModel()
         {
             userRepository = new UserRepository();
             this.usuario = Application.Current.Properties["EDITUSER"] as UserModel;
 
-            DeleteVC = new ViewModelCommand(o =>
+            EditVC = new ViewModelCommand(o =>
             {
-                MessageBox.Show("Intentando borrar el usuario: " + usuario._id.ToString());
-                userRepository.Remove(usuario._id.ToString());
+                var modeloForm = (UserModel)o;
 
+                if (MessageBox.Show("¿Deseas editar los datos del usuario?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    userRepository.Edit(Username, Name, Lastname);
+                }
             });
         }
     }

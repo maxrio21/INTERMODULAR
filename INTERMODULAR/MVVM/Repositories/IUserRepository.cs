@@ -11,8 +11,8 @@ namespace INTERMODULAR.MVVM.Repositories
     public interface IUserRepository
     {
         Task<bool> AuthenticateUser(NetworkCredential credential);
-        void Add(UserModel userModel);
-        void Edit(UserModel userModel);
+        Task Add(UserModel userModel); 
+        Task Edit(string username, string name, string lastname);
         Task Remove(string id);
         Task<UserModel> GetByID(string id);
         UserModel GetByUsername(string username);

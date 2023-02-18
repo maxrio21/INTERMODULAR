@@ -1,4 +1,5 @@
-﻿using INTERMODULAR.MVVM.Repositories;
+﻿using INTERMODULAR.MVVM.Model;
+using INTERMODULAR.MVVM.Repositories;
 using INTERMODULAR.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -24,13 +25,13 @@ namespace INTERMODULAR.MVVM.View
     {
         IUserRepository userRepository;
 
+        
         public UserEditView()
         {
             InitializeComponent();
-            
             this.DataContext = new UserEditViewModel();
 
-            var usuario = ((UserEditViewModel)this.DataContext).usuario;
+            var usuario = Application.Current.Properties["EDITUSER"] as UserModel;
 
             username.Text = usuario._id;
             name.Text = usuario.nombre;
