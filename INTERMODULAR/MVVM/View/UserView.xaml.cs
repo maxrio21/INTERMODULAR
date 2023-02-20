@@ -30,18 +30,9 @@ namespace INTERMODULAR.MVVM.View
 
             this.DataContext = new UserViewModel();
             usuariosDataGrid.ItemsSource = ((UserViewModel)this.DataContext).RellenarTablaUsuarios();
-
-            //this.DataContext = new MainViewModel();
-            //usuariosDataGrid.ItemsSource = ((MainViewModel)this.DataContext).RellenarTablaUsuarios();
         }
 
-        /*
-        private void EditUserEvent(object sender, RoutedEventArgs e)
-        {
-            DGUserModel row = (DGUserModel)((Button)e.OriginalSource).DataContext;
-            ((MainViewModel)this.DataContext).ModificarUsuario(row.Id);
-        }
-        */
+       
         private void DeleteUserEvent(object sender, RoutedEventArgs e)
         {
             

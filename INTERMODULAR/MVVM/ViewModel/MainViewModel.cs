@@ -81,9 +81,9 @@ namespace INTERMODULAR.MVVM.ViewModel
             });
 
             PubliCommVC = new ViewModelCommand(o =>
-            {
-                MessageBox.Show("Ha llegado aquí");
+            {             
                 CurrentView = PubliCommVM;
+                MessageBox.Show("Ha llegado aquí");
             });
 
             //Utilizamos este comando para editar el usuario en la base de datos con un put

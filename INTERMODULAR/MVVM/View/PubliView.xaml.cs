@@ -289,12 +289,28 @@ namespace INTERMODULAR.MVVM.View
 
             void OpenBtnClick(object sender, RoutedEventArgs e)
             {
-                //this.DataContext = new MainViewModel();
-                //openBtn.Command = ((MainViewModel)this.DataContext).PubliCommVC;
-                Binding b = new Binding("PubliCommVC");
+                this.DataContext = new MainViewModel();
+                openBtn.Command = ((MainViewModel)this.DataContext).PubliCommVC;
+
+                //Binding b = new Binding("PubliCommVC");
+                //b.RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(UserControl), 1);
+                //openBtn.SetBinding(Button.CommandProperty, b);
+                //openBtn.Command = ((PubliViewModel)this.DataContext).ChangeVC;
+
+                /*Binding b = new Binding
+                {
+                    Path = new PropertyPath("PubliCommVC"),
+                    Source = this.DataContext,
+                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
+                    //IsAsync = true;
+                };*/
+                //b.RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, this.GetType(), 1);
+                //b.Path = new PropertyPath("PubliCommVC");
+                //openBtn.SetBinding(Button.CommandProperty, b);
+
                 //b.Source = this.DataContext;
-                b.RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(MainView),2);
-                openBtn.SetBinding(Button.CommandProperty, b);
+                //b.RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(MainView), 2);
+                //openBtn.CommandTarget = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(MainView), 1);
                 //b.RelativeSource = new RelativeSource(RelativeSourceMode.Self);
                 //openBtn.SetBinding(Button.CommandProperty, b);
                 /*
