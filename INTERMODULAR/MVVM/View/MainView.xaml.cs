@@ -23,6 +23,10 @@ namespace INTERMODULAR.MVVM.View
         public MainView()
         {
             InitializeComponent();
+            ImageBrush ib = new ImageBrush();
+            ib.Stretch = Stretch.Uniform;
+            ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"http://localhost:3000/uploads/users/default.jpg"));
+            profile_img.Background = ib;
         }
     }
 }

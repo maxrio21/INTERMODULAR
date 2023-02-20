@@ -14,19 +14,20 @@ namespace INTERMODULAR.MVVM.ViewModel
         //readonly UserModel usuario = new UserModel();
 
         IUserRepository userRepository;
-        private string _username;
+        private string _correo;
         private string _name;
         private string _lastname;
 
         public UserModel usuario { get; set; }
         public ViewModelCommand EditVC { get; set; }
-        public string Username
+        public ViewModelCommand DelImgVC { get; set; }
+        public string Correo
         {
-            get => _username;
+            get => _correo;
             set
             {
-                _username = value;
-                OnPropertyChanged(nameof(Username));
+                _correo = value;
+                OnPropertyChanged(nameof(Correo));
             }
         }
         public string Name
@@ -58,7 +59,15 @@ namespace INTERMODULAR.MVVM.ViewModel
 
                 if (MessageBox.Show("¿Deseas editar los datos del usuario?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    userRepository.Edit(Username, Name, Lastname);
+                    userRepository.Edit(Name, Lastname, Correo);
+                }
+            });
+
+            DelImgVC = new ViewModelCommand(o =>
+            {
+                if (MessageBox.Show("¿Deseas borrar la imagen de perfil del usuario?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    userRepository.RemoveImg(usuario._id);
                 }
             });
         }

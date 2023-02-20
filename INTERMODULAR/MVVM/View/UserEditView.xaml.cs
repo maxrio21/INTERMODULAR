@@ -33,9 +33,17 @@ namespace INTERMODULAR.MVVM.View
 
             var usuario = Application.Current.Properties["EDITUSER"] as UserModel;
 
-            username.Text = usuario._id;
             name.Text = usuario.nombre;
             lastname.Text = usuario.apellido;
+            email.Text = usuario.email;
+
+            ImageBrush ib = new ImageBrush();
+            Uri rute = new Uri(@"http://localhost:3000/" + usuario.foto);
+
+            ib.Stretch = Stretch.Uniform;
+            ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
+            profile_img.Background = ib;
+
         }
     }
 }

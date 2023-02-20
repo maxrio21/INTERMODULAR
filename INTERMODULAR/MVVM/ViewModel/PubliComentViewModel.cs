@@ -9,14 +9,14 @@ using System.Windows;
 
 namespace INTERMODULAR.MVVM.ViewModel
 {
-    public class PubliViewModel
+    public class PubliComentViewModel
     {
         IPostRepository postRepository;
         IUserRepository userRepository;
         public ViewModelCommand EditVC { get; set; }
         public ViewModelCommand DeleteVC { get; set; }
 
-        public PubliViewModel()
+        public PubliComentViewModel()
         {
 
             postRepository = new PostRepository();
@@ -25,17 +25,6 @@ namespace INTERMODULAR.MVVM.ViewModel
             {
                 MessageBox.Show("Hola!");
             });
-        }
-
-        public PostModel[] generarPublicaiones()
-        {
-            return (PostModel[])postRepository.GetByAll().Result;
-        }
-
-        public UserModel getUsuario(string id)
-        {
-            userRepository = new UserRepository();
-            return (UserModel)userRepository.GetByID(id).Result;
         }
     }
 }

@@ -34,6 +34,7 @@ namespace INTERMODULAR.MVVM.ViewModel
                 {
                     Id = user._id,
                     Persona = (user.nombre + " " + user.apellido),
+                    Imagen = new Uri(@"http://localhost:3000/" + user.foto),
                     Ingreso = user.fecha,
                     Correo = user.email
                 });

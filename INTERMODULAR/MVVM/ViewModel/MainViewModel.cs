@@ -19,6 +19,7 @@ namespace INTERMODULAR.MVVM.ViewModel
         public ViewModelCommand UserVC { get; set; }
         public ViewModelCommand UserEditVC { get; set; }
         public ViewModelCommand PubliVC { get; set; }
+        public ViewModelCommand PubliCommVC { get; set; }
         public ViewModelCommand DeleteUserVC { get; set; }
 
 
@@ -26,6 +27,7 @@ namespace INTERMODULAR.MVVM.ViewModel
         public UserViewModel UserVM { get; set; }
         public UserEditViewModel UserEditVM { get; set; }
         public PubliViewModel PubliVM { get; set; }
+        public PubliComentViewModel PubliCommVM { get; set; }
 
         public object _currentView;
 
@@ -43,6 +45,7 @@ namespace INTERMODULAR.MVVM.ViewModel
             HomeVM = new HomeViewModel();
             UserVM = new UserViewModel();
             PubliVM = new PubliViewModel();
+            PubliCommVM = new PubliComentViewModel();
 
             //UserEditVM = new UserEditViewModel(userRepository.GetByID(id).Result);
 
@@ -75,6 +78,12 @@ namespace INTERMODULAR.MVVM.ViewModel
             PubliVC = new ViewModelCommand(o =>
             {
                 CurrentView = PubliVM;
+            });
+
+            PubliCommVC = new ViewModelCommand(o =>
+            {
+                MessageBox.Show("Ha llegado aquí");
+                CurrentView = PubliCommVM;
             });
 
             //Utilizamos este comando para editar el usuario en la base de datos con un put

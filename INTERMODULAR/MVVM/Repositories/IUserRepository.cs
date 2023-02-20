@@ -14,6 +14,7 @@ namespace INTERMODULAR.MVVM.Repositories
         Task Add(UserModel userModel); 
         Task Edit(string username, string name, string lastname);
         Task Remove(string id);
+        Task RemoveImg(string id);
         Task<UserModel> GetByID(string id);
         UserModel GetByUsername(string username);
         Task<IEnumerable<UserModel>> GetByAll();

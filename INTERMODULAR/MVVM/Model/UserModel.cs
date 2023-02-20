@@ -20,4 +20,10 @@ namespace INTERMODULAR.MVVM.Model
         public bool admin { get; set; }
         public int __v {get; set;}
     }
+
+    public class RemoveImgModel
+    {
+        public string _id { get; set; }
+
+    }
 }

@@ -22,23 +22,34 @@
     </Window.DataContext>
 
     <Border CornerRadius="30,30,30,30">
-        <Border.Background>
+        <!--<Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFA5D26A" Offset="0"/>
                 <GradientStop Color="#FF26BBAC" Offset="1"/>
             </LinearGradientBrush>
-        </Border.Background>
+        </Border.Background>-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
+            <!--<Grid.ColumnDefinitions>
                 <ColumnDefinition Width="177*"/>
                 <ColumnDefinition Width="623*"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>-->
 
-            <Border CornerRadius="30,30,30,30" Grid.Column="0">
+            <Border CornerRadius="30,30,30,30" Grid.Column="0" Margin="0,46,817,0" Panel.ZIndex="1000">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA5D26A" Offset="0"/>
+                        <GradientStop Color="#FF26BB9C" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" 
+                                      RenderingBias="Performance" 
+                                      ShadowDepth="0" Color="#FFB7B7B7"/>
+                </Border.Effect>
                 <Grid Margin="0,0,0,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="39*"/>
@@ -56,17 +67,13 @@
                             </Border.Background>
                         </Border>
 
-                        <Border Margin="0,0,0,10"
+                        <Border x:Name="profile_img"
+                                Margin="0,0,0,10"
                                 Width="80" 
                                 Height="80"
                                 Background="White" 
-                                CornerRadius="100"
+                                CornerRadius="25"
                                 DockPanel.Dock="Top">
-                            <Ellipse>
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="../../Images/left_login.jpg"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
                         </Border>
                         <TextBlock Text="Nombre" DockPanel.Dock="Top" 
                                    TextAlignment="Center" 
@@ -85,19 +92,24 @@
                         <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas" Command="{Binding PubliVC}"/>
                         <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
-                    <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" Margin="0,258,0,0"/>
+                    <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" VerticalAlignment="Bottom"/>
 
                 </Grid>
             </Border>
 
-            <Border CornerRadius="30,30,30,30" Grid.RowSpan="2" Grid.Column="1"
-                Background="#FFEFEFEF">
+            <Border CornerRadius="30,30,30,30" Margin="56,0,0,0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFEFEFEF"/>
+                        <GradientStop Color="#FFD2D2D2" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
                 <ContentControl Grid.ColumnSpan="1" 
                             Grid.Row="1"
-                            Margin="30,30,30,30"
+                            Margin="156,30,30,30"
                             Content="{Binding CurrentView}"/>
-                
+
             </Border>
         </Grid>
     </Border>

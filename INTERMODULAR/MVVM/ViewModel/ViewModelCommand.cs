@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace INTERMODULAR.MVVM.ViewModel
@@ -46,5 +47,9 @@ namespace INTERMODULAR.MVVM.ViewModel
             _executeAction(parameter);
         }
 
+        public static explicit operator ViewModelCommand(Binding v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

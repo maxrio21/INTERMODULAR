@@ -49,7 +49,7 @@ namespace INTERMODULAR.MVVM.Repositories
 
         }
 
-        public async Task Edit(string username, string name, string lastname)
+        public async Task Edit(string name, string lastname, string email)
         {
             /*
             var user = this.GetByID(username).Result;
@@ -70,21 +70,18 @@ namespace INTERMODULAR.MVVM.Repositories
             PutModel put = new PutModel();
             put.nombre = name;
             put.apellido = lastname;
+            put.email = email;
+
+            var usuario = (UserModel)Application.Current.Properties["EDITUSER"];
 
             var client = new RestClient("http://localhost:3000/");
-            var req = new RestRequest("api/users/" + username, Method.Put);
+            var req = new RestRequest("api/users/" + usuario._id, Method.Put);
             req.AddHeader("Accept", "application/json");
             req.AddJsonBody(JsonConvert.SerializeObject(put));
 
+            MessageBox.Show(usuario._id);
+
             var res = client.Execute(req);
-
-
-            foreach(var i in req.Parameters)
-            {
-                MessageBox.Show(i.ToString());
-            }
-            //MessageBox.Show(user._id);
-            MessageBox.Show(username);
 
             if (!res.IsSuccessStatusCode)
             {
@@ -149,6 +146,30 @@ namespace INTERMODULAR.MVVM.Repositories
         public UserModel GetByUsername(string username)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task RemoveImg(string id)
+        {
+            var usuario = (UserModel)Application.Current.Properties["EDITUSER"];
+
+            RemoveImgModel userModel = new RemoveImgModel();
+            userModel._id = usuario._id;
+
+            var client = new RestClient("http://localhost:3000/");
+            var req = new RestRequest("api/images/remove/", Method.Post);
+            req.RequestFormat = RestSharp.DataFormat.Json;
+
+            MessageBox.Show(userModel._id);
+            
+            //req.AddBody(usuario);
+
+            var res = client.Execute(req);
+
+            if (!res.IsSuccessStatusCode)
+            {
+                MessageBox.Show("No se ha podido borrar la imagen asociada al usuario" + res.StatusCode.ToString());
+                return;
+            }
         }
 
         public async Task Remove(string id)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INTERMODULAR.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
     /// <summary>
-    /// Lógica de interacción para Publi_Coment.xaml
+    /// Lógica de interacción para PubliComentView.xaml
     /// </summary>
-    public partial class Publi_Coment : Window
+    public partial class PubliComentView : UserControl
     {
-        public Publi_Coment()
+        public PubliComentView()
         {
             InitializeComponent();
+            this.DataContext = new PubliComentViewModel();
         }
     }
 }

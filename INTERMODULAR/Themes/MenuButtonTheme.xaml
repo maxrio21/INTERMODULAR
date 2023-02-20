@@ -35,18 +35,18 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
                         <Border x:Name="radioBorder" Background="Transparent" 
-                                HorizontalAlignment="Stretch"
-                                Margin="20,0,0,0"
-                                Padding="15,0,0,0"
-                                CornerRadius="20,0,0,20"
-                                Height="40">
-                            
+                                    HorizontalAlignment="Stretch"
+                                    Margin="20,0,0,0"
+                                    Padding="15,0,0,0"
+                                    CornerRadius="20,0,0,20"
+                                    Height="40">
+                            <Grid>
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Foreground="White"
-                                                           Kind="HomeOutline" 
-                                                           Margin="0,0,0,0"
-                                                           VerticalAlignment="Center"
-                                                           x:Name="radioIcon"/>
+                                                            Kind="HomeOutline" 
+                                                            Margin="0,0,0,0"
+                                                            VerticalAlignment="Center"
+                                                            x:Name="radioIcon"/>
                                     <TextBlock  Foreground="White"
                                                 Text="{TemplateBinding Property=Content}" 
                                                 FontWeight="Bold"
@@ -54,7 +54,8 @@
                                                 VerticalAlignment="Center"
                                                 x:Name="radioText"/>
                                 </StackPanel>
-                            
+                            </Grid>
+
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
@@ -194,11 +195,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="radioBorder" Background="Transparent" 
-                                HorizontalAlignment="Stretch"
-                                Margin="20,0,0,0"
+                        <Border x:Name="radioBorder" Background="Transparent"
+                                Margin="20"
                                 Padding="15,0,0,0"
-                                CornerRadius="20,0,0,20"
+                                CornerRadius="20,20,20,20"
                                 Height="40">
 
                             <StackPanel Orientation="Horizontal">

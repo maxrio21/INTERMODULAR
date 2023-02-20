@@ -10,6 +10,7 @@ namespace INTERMODULAR.MVVM.Model
     {
         public string Id { get; set; }
         public string Persona { get; set; }
+        public Uri Imagen { get; set; }
         public string Ingreso { get; set; }
         public string Correo { get; set; } 
     }

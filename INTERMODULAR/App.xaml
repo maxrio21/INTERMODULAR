@@ -40,7 +40,6 @@
             <Style x:Key="customTextBox" TargetType="TextBox">
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="Margin" Value="46,173,0,0"/>
                 <Setter Property="TextWrapping" Value="Wrap"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
                 <Setter Property="Height" Value="25"/>
@@ -393,7 +392,11 @@
             <DataTemplate DataType="{x:Type viewModel:PubliViewModel}">
                 <view:PubliView/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewModel:PubliComentViewModel}">
+                <view:PubliComentView/>
+            </DataTemplate>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./Themes/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="./Themes/Fuentes.xaml"/>

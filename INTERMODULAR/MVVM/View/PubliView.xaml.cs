@@ -5,6 +5,7 @@ using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -28,10 +29,11 @@ namespace INTERMODULAR.MVVM.View
     /// </summary>
     public partial class PubliView : UserControl
     {
-
+        IPostRepository postRepository;
+        IUserRepository userRepository;
         public PubliView()
         {
-            IPostRepository postRepository;
+
             postRepository = new PostRepository();
 
             InitializeComponent();
@@ -43,21 +45,20 @@ namespace INTERMODULAR.MVVM.View
 
                 if (fotos.Length == 0)
                 {
-                    this.generate(post.nombre.ToUpper(), "default", post.usuario_id,(post.hora + " " + post.fecha), post.contenido, post.cat);
+                    this.generate(post._id, post.nombre.ToUpper(), "default", post.usuario_id,(post.hora + " " + post.fecha), post.contenido, post.cat);
                 }
                 else
                 {
-                    this.generate(post.nombre.ToUpper(), fotos[0], post.usuario_id, post.fecha, post.contenido, post.cat);
+                    this.generate(post._id, post.nombre.ToUpper(), fotos[0], post.usuario_id, post.fecha, post.contenido, post.cat);
                 }
             }
         }
         Border container = new Border();
 
-        public void generate(string titulo, string foto, string usuario, string fecha, string descripcion, string categoria)
+        public void generate(string id, string titulo, string foto, string usuario, string fecha, string descripcion, string categoria)
         {
             //Contenedor principal de la publicacion
             Border container = new Border();
-
             BrushConverter bc = new BrushConverter(); //Utilizamos el brush para poner colores personalizados en hexadecimal
 
             container.Background = (Brush)bc.ConvertFrom("#FFFFFF");
@@ -135,15 +136,22 @@ namespace INTERMODULAR.MVVM.View
             sp_cabecera.Height = 68;
 
             Grid.SetRow(sp_cabecera, 1);
-
-            //Imagen del usuario
+                     
             Ellipse contenedor_perfil = new Ellipse();
             contenedor_perfil.Height = 40;
             contenedor_perfil.Width = 40;
             ImageBrush ib = new ImageBrush();
-            ib.ImageSource = new BitmapImage(new Uri("./Images/left_login.jpg", UriKind.RelativeOrAbsolute));
-            //contenedor_perfil.Fill = ib;
+            Uri rute = new Uri(@"http://localhost:3000" + "/uploads/users/" + usuario + ".jpg");
 
+            if(!File.Exists(rute.LocalPath))
+            {
+               rute = new Uri(@"http://localhost:3000" + "/uploads/users/default.jpg");
+            }
+
+            ib.Stretch = Stretch.Uniform;
+            ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
+            contenedor_perfil.Fill = ib;
+            
             //Contenedor de usuario y fecha
             StackPanel sp_usuario_fecha = new StackPanel();
             sp_usuario_fecha.Orientation = Orientation.Vertical;
@@ -196,9 +204,13 @@ namespace INTERMODULAR.MVVM.View
 
             Button editBtn = new Button();
             Button delBtn = new Button();
+            Button openBtn = new Button();
 
             Style style = new Style(typeof(Border));
+            Style openStyle = new Style(typeof(Border));
+
             style.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(3)));
+            openStyle.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(100)));
 
             editBtn.Command = ((PubliViewModel)this.DataContext).EditVC;
             editBtn.Background = (Brush)bc.ConvertFrom("#FF81CA46");
@@ -219,6 +231,16 @@ namespace INTERMODULAR.MVVM.View
             delBtn.Margin = new Thickness(5,0,0,0);
             delBtn.HorizontalAlignment = HorizontalAlignment.Left;
 
+            openBtn.Background = (Brush)bc.ConvertFrom("#FF81CA46");
+            openBtn.BorderThickness = new Thickness(0);
+            openBtn.Width = 40;
+            openBtn.Height = 40;
+            openBtn.Margin = new Thickness(319, 17, 319, -16);
+            openBtn.Resources.Add(typeof(Border), openStyle);
+            openBtn.Click += OpenBtnClick;
+
+            Grid.SetRow(openBtn, 4);
+
             var edit_icon = new PackIconMaterial()
             {
                 Kind = PackIconMaterialKind.PencilOutline,
@@ -237,12 +259,50 @@ namespace INTERMODULAR.MVVM.View
                 Width = Double.NaN
             };
 
+            var open_icon = new PackIconMaterial()
+            {
+                Kind = PackIconMaterialKind.ChevronDoubleDown,
+                VerticalAlignment = VerticalAlignment.Center,
+                Foreground = (Brush)bc.ConvertFrom("#FFFFFF"),
+                Height = 15,
+                Width = 15
+            };
+
+            openBtn.Effect = uie.Effect;
+
             editBtn.Content = edit_icon;
             delBtn.Content = del_icon;
+            openBtn.Content = open_icon;
+
 
             //Fin primera fila
 
             //Fin de contenido de la publicacion
+
+            //Eventos
+            container.MouseLeftButtonDown += new MouseButtonEventHandler(postClick);
+
+            void postClick(object sender, MouseButtonEventArgs e)
+            {
+                MessageBox.Show(id);
+            }
+
+            void OpenBtnClick(object sender, RoutedEventArgs e)
+            {
+                //this.DataContext = new MainViewModel();
+                //openBtn.Command = ((MainViewModel)this.DataContext).PubliCommVC;
+                Binding b = new Binding("PubliCommVC");
+                //b.Source = this.DataContext;
+                b.RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(MainView),2);
+                openBtn.SetBinding(Button.CommandProperty, b);
+                //b.RelativeSource = new RelativeSource(RelativeSourceMode.Self);
+                //openBtn.SetBinding(Button.CommandProperty, b);
+                /*
+                *  Command = "{Binding DataContext.UserEditVC, 
+                *  RelativeSource={RelativeSource AncestorType=local:MainView}}" 
+                *  CommandParameter = "{Binding Path=Id}" >
+                */
+            }
 
             //Herencia de objetos
             panel_rutas.Children.Add(container);
@@ -260,8 +320,11 @@ namespace INTERMODULAR.MVVM.View
             main_grid.Children.Add(opciones);
             opciones.Children.Add(editBtn);
             opciones.Children.Add(delBtn);
+            main_grid.Children.Add(openBtn);
 
         }
+
+        
     }
 }
 
