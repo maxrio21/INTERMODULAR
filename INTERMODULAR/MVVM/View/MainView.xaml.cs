@@ -28,5 +28,10 @@ namespace INTERMODULAR.MVVM.View
             ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"http://localhost:3000/uploads/users/default.jpg"));
             profile_img.Background = ib;
         }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

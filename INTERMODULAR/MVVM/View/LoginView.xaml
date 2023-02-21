@@ -28,7 +28,7 @@
         <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
     </Window.Visibility>
 
-    <Border Background="#FFFFFF" CornerRadius="15,17,17,15">
+    <Border Background="#FFFFFF" CornerRadius="15,17,17,15" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid RenderTransformOrigin="0.516,0.5">
             <Grid.RowDefinitions>
                 <RowDefinition/>
