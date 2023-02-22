@@ -1,4 +1,6 @@
-﻿using INTERMODULAR.MVVM.ViewModel;
+﻿using INTERMODULAR.MVVM.Model;
+using INTERMODULAR.MVVM.Repositories;
+using INTERMODULAR.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,15 +18,53 @@ using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
-    /// <summary>
-    /// Lógica de interacción para PubliComentView.xaml
-    /// </summary>
+
     public partial class PubliComentView : UserControl
     {
+        IUserRepository userRepository;
+
         public PubliComentView()
         {
+
+            
+
             InitializeComponent();
             this.DataContext = new PubliComentViewModel();
+
+            var post = Application.Current.Properties["POST"] as PostModel;
+            var comp_usu = post.usuario_id;
+
+            var user_foto = ((PubliComentViewModel)this.DataContext).GetPostPhoto(post.usuario_id);
+
+            if (user_foto == null)
+            {
+                comp_usu = "Desconocido";
+            }
+
+            this.post_title.Text = post.nombre.ToUpper();
+            this.post_user_username.Text = comp_usu;
+            this.post_user_date.Text = post.fecha + " " + post.hora;
+            this.post_comment.Text = post.contenido;
+            this.post_distance.Text = post.km_distancia.ToString();
+            this.post_duration.Text = post.min_duracion.ToString();
+            this.post_dificulty.Text = post.dificultad;
+            this.post_category.Text = post.cat;
+
+            ImageBrush ib = new ImageBrush();
+            Uri rute;
+            
+            rute = new Uri(@"http://localhost:3000/" + user_foto);
+
+            if (comp_usu == "Desconocido")
+            {
+                rute = new Uri(@"http://localhost:3000/uploads/users/default.jpg");
+            }
+
+            ib.Stretch = Stretch.Uniform;
+            ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
+            this.post_user_img.Background = ib;
+
+            //MessageBox.Show(post._id);
         }
     }
 }

@@ -104,12 +104,15 @@
                         <GradientStop Color="#FFD2D2D2" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
+                <Grid>
 
-                <ContentControl Grid.ColumnSpan="1" 
+
+
+                    <ContentControl Grid.ColumnSpan="1" 
                             Grid.Row="1"
                             Margin="156,30,30,30"
                             Content="{Binding CurrentView}"/>
-
+                </Grid>
             </Border>
         </Grid>
     </Border>

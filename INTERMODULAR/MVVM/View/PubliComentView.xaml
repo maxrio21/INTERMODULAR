@@ -3,11 +3,252 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
+             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             Height="590" Width="718">
-    <Grid>
-        <Border Background="White" CornerRadius="15" Padding="10" Margin="0,20,0,20">
+             d:DesignHeight="790" d:DesignWidth="718">
+    <ScrollViewer Height="Auto" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Row="2" VirtualizingPanel.ScrollUnit="Pixel">
+        <Grid>
+            <Border
+            CornerRadius="7">
+                <Grid ShowGridLines="True" Height="790">
+                    <Border 
+                        Grid.Row="0" 
+                        Grid.RowSpan="2"
+                        Background="#FFF7F7F7"
+                        CornerRadius="7"
+                        Margin="30,25,30,25">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                BlurRadius="7"                                       
+                                RenderingBias="Performance"                                         
+                                ShadowDepth="0" Color="#FFB7B7B7"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid Margin="15">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="153*"/>
+                                    <RowDefinition Height="60*"/>
+                                    <RowDefinition Height="71*"/>
+                                    <RowDefinition Height="152*"/>
+                                    <RowDefinition Height="65*"/>
+                                    <RowDefinition Height="209*"/>
+
+                                </Grid.RowDefinitions>
+                                <Border x:Name="post_img"
+                                    Grid.Row="0"
+                                    Background="LightGray"
+                                    CornerRadius="7,7,0,0">
+                                    <Border.Effect>
+                                        <DropShadowEffect 
+                                            BlurRadius="7"                                       
+                                            RenderingBias="Performance"                                         
+                                            ShadowDepth="0" Color="#FFB7B7B7"/>
+                                    </Border.Effect>
+                                    <Grid>
+                                        <Button 
+                                            Height="50"
+                                            Width="20"
+                                            HorizontalAlignment="Left"
+                                            Background="#FF81CA46"
+                                            BorderThickness="0">
+                                            <Button.Effect>
+                                                <DropShadowEffect 
+                                                    BlurRadius="7"                                       
+                                                    RenderingBias="Performance"                                         
+                                                    ShadowDepth="0" 
+                                                    Color="#FFB7B7B7"/>
+                                            </Button.Effect>
+                                            <Icon:PackIconMaterial 
+                                                Kind="ChevronLeft" 
+                                                Foreground="White"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"/>
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter 
+                                                        Property="CornerRadius" 
+                                                        Value="0,7,7,0"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                        <Button 
+                                            Height="50"
+                                            Width="20"
+                                            HorizontalAlignment="Right"
+                                            Background="#FF81CA46"
+                                            BorderThickness="0">
+                                            <Button.Effect>
+                                                <DropShadowEffect 
+                                                    BlurRadius="7"                                       
+                                                    RenderingBias="Performance"                                         
+                                                    ShadowDepth="0" Color="#FFB7B7B7"/>
+                                            </Button.Effect>
+                                            <Icon:PackIconMaterial 
+                                                Kind="ChevronRight" 
+                                                Foreground="White"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"/>
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter 
+                                                        Property="CornerRadius" 
+                                                        Value="7,0,0,7"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                                <TextBlock x:Name="post_title"
+                                    VerticalAlignment="Center"
+                                    FontSize="20"
+                                    FontWeight="Bold" 
+                                    Height="26"
+                                    Grid.Row="1"/>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <Border x:Name="post_user_img"
+                                            CornerRadius="7"
+                                            Background="LightGray"
+                                            Height="50"
+                                            Width="50">
+                                            <Border.Effect>
+                                                <DropShadowEffect 
+                                                BlurRadius="7"                                       
+                                                RenderingBias="Performance"                                         
+                                                ShadowDepth="0" Color="#FFB7B7B7"/>
+                                            </Border.Effect>
+                                        </Border>
+
+                                        <Grid 
+                                            Height="50"
+                                            Width="140"
+                                            VerticalAlignment="Center">
+                                            <Grid Margin="10,0,0,0">
+                                                <TextBlock 
+                                                    Text="Usuario"
+                                                    FontWeight="Bold"
+                                                    VerticalAlignment="Top"/>
+                                                <TextBlock x:Name="post_user_username"
+                                                    VerticalAlignment="Center"/>
+                                                <TextBlock x:Name="post_user_date"
+                                                    VerticalAlignment="Bottom"/>
+                                            </Grid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                                <TextBlock x:Name="post_comment"
+                                    Grid.Row="3"
+                                    TextWrapping="Wrap"
+                                    VerticalAlignment="Center"
+                                    Height="94"/>
+                                <Grid 
+                                    Grid.Row="4"
+                                    Margin="0,5,0,5">
+                                    <Border
+                                        Grid.ColumnSpan="5"
+                                        Background="LightGray"
+                                        CornerRadius="7"
+                                        Padding="10"
+                                        >
+                                        <Border.Effect>
+                                            <DropShadowEffect 
+                                                BlurRadius="7"                                       
+                                                RenderingBias="Performance"                                         
+                                                ShadowDepth="0" Color="#FFB7B7B7"/>
+                                        </Border.Effect>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel
+                                                Grid.Column="0"
+                                                VerticalAlignment="Center"
+                                                Orientation="Vertical">
+                                                <TextBlock x:Name="post_distance"
+                                                    FontWeight="Bold"
+                                                    FontSize="16"
+                                                    TextAlignment="Center"/>
+                                                <TextBlock 
+                                                    Text="Distancia"
+                                                    TextAlignment="Center"/>
+                                            </StackPanel>
+                                            <StackPanel
+                                                Grid.Column="1"
+                                                VerticalAlignment="Center"
+                                                Orientation="Vertical">
+                                                <TextBlock x:Name="post_duration"
+                                                    FontWeight="Bold"
+                                                    FontSize="16"
+                                                    TextAlignment="Center"/>
+                                                <TextBlock 
+                                                    Text="Duracion"
+                                                    TextAlignment="Center"/>
+                                            </StackPanel>
+                                            <StackPanel
+                                                Grid.Column="2"
+                                                VerticalAlignment="Center"
+                                                Orientation="Vertical">
+                                                <TextBlock x:Name="post_dificulty"
+                                                    FontWeight="Bold"
+                                                    FontSize="16"
+                                                    TextAlignment="Center"/>
+                                                <TextBlock 
+                                                    Text="Dificultad"
+                                                    TextAlignment="Center"/>
+                                            </StackPanel>
+                                            <StackPanel
+                                                Grid.Column="3"
+                                                VerticalAlignment="Center"
+                                                Orientation="Vertical">
+                                                <TextBlock x:Name="post_category"
+                                                    FontWeight="Bold"
+                                                    FontSize="16"
+                                                    TextAlignment="Center"/>
+                                                <TextBlock 
+                                                    Text="Categoria"
+                                                    TextAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                                <StackPanel 
+                                    Margin="0,10,0,0"
+                                    Orientation="Vertical"
+                                    Grid.Row="5">
+                                    <TextBlock 
+                                        Text="Comentarios"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                    />
+                                    <StackPanel
+                                        x:Name="comments_panel" 
+                                        Background="Red"
+                                        Orientation="Vertical" 
+                                        Height="Auto" 
+                                        Width="Auto"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>
+
+
+<!--
             <Border.Effect>
                 <DropShadowEffect BlurRadius="7" 
                                           RenderingBias="Performance" 
@@ -99,7 +340,6 @@
                                 <RowDefinition Height="163*"/>
                                 <RowDefinition Height="113*"/>
                             </Grid.RowDefinitions>
-                            <!-- distancia, duracion, privacidad -->
                             <StackPanel VerticalAlignment="Center" Height="153">
                                 <StackPanel Margin="0,10,0,10">
                                     <TextBlock Text="Distancia" 
@@ -187,7 +427,5 @@
                         </Grid>
                     </Border>
                 </Grid>
-            </ScrollViewer>
-        </Border>
-    </Grid>
-</UserControl>
+            </ScrollViewer>-->
+        

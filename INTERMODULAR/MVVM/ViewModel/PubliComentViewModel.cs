@@ -18,13 +18,18 @@ namespace INTERMODULAR.MVVM.ViewModel
 
         public PubliComentViewModel()
         {
-
             postRepository = new PostRepository();
 
             EditVC = new ViewModelCommand(o =>
             {
                 MessageBox.Show("Hola!");
             });
+        }
+
+        public string GetPostPhoto(string id)
+        {
+            userRepository = new UserRepository();
+            return userRepository.GetByID(id).Result.foto;
         }
     }
 }

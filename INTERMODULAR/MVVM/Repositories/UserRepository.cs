@@ -130,7 +130,7 @@ namespace INTERMODULAR.MVVM.Repositories
 
             if (!res.IsSuccessStatusCode)
             {
-                MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
+                //MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
                 return usuario;
             }
 

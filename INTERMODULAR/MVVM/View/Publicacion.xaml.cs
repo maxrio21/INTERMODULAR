@@ -20,14 +20,32 @@ namespace INTERMODULAR.MVVM.View
     /// </summary>
     public partial class Publicacion : UserControl
     {
+        public string Id { set; get; }
+        public string Titulo { set; get; }
+        public string Foto { set; get; }
+        public string Usuario { set; get; }
+        public string Fecha { set; get; }
+        public string Descripcion { set; get; }
+        public string Categoria { set; get; }
         public Publicacion(string id, string titulo, string foto, string usuario, string fecha, string descripcion, string categoria)
         {
             InitializeComponent();
-            b_titulo.Text = titulo;
-            b_usuario.Text = usuario;
-            b_fecha.Text = fecha;
-            b_descripcion.Text = descripcion;
-            b_categoria.Text = categoria;
+
+            this.Id = id;
+            this.Titulo = titulo;
+            this.Foto = foto;
+            this.Usuario = usuario;
+            this.Fecha = fecha;
+            this.Descripcion = descripcion;
+            this.Categoria = categoria;
+
+            b_titulo.Text = this.Titulo;
+            b_usuario.Text = this.Usuario;
+            b_fecha.Text = this.Fecha;
+            b_descripcion.Text = this.Descripcion;
+            b_categoria.Text = this.Categoria;
+
+            showPubBtn.CommandParameter = this.Id;
         }
     }
 }

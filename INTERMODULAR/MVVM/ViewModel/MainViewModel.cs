@@ -15,6 +15,8 @@ namespace INTERMODULAR.MVVM.ViewModel
     class MainViewModel : ViewModelBase
     {
         IUserRepository userRepository;
+        IPostRepository postRepository;
+
         public ViewModelCommand HomeVC { get; set; }
         public ViewModelCommand UserVC { get; set; }
         public ViewModelCommand UserEditVC { get; set; }
@@ -41,6 +43,7 @@ namespace INTERMODULAR.MVVM.ViewModel
         public MainViewModel()
         {
             userRepository = new UserRepository();
+            postRepository = new PostRepository();
 
             HomeVM = new HomeViewModel();
             UserVM = new UserViewModel();
@@ -81,9 +84,13 @@ namespace INTERMODULAR.MVVM.ViewModel
             });
 
             PubliCommVC = new ViewModelCommand(o =>
-            {             
+            {
+                var id = o.ToString();
+
+                var post = postRepository.GetByID(id).Result;
+
+                Application.Current.Properties["POST"] = post;
                 CurrentView = PubliCommVM;
-                MessageBox.Show("Ha llegado aquí");
             });
 
             //Utilizamos este comando para editar el usuario en la base de datos con un put

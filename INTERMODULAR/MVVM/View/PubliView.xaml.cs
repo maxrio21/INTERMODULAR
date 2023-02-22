@@ -35,6 +35,7 @@ namespace INTERMODULAR.MVVM.View
         {
 
             postRepository = new PostRepository();
+            userRepository = new UserRepository();
 
             InitializeComponent();
             this.DataContext = new PubliViewModel();
@@ -56,7 +57,17 @@ namespace INTERMODULAR.MVVM.View
 
         public void generate(string id, string titulo, string foto, string usuario, string fecha, string descripcion, string categoria)
         {
-            panel_rutas.Children.Add(new Publicacion(id,titulo,foto,usuario,fecha,descripcion,categoria));
+            //Dispatcher.BeginInvoke(new Action(() => MessageBox.Show(foto)));
+
+            var comp_usu = usuario;
+
+            if(userRepository.GetByID(usuario).Result.foto == null)
+            {
+                comp_usu = "Desconocido";
+            }
+
+
+            panel_rutas.Children.Add(new Publicacion(id,titulo,foto, comp_usu, fecha,descripcion,categoria));
         }
 
             //Herencia de objetos
