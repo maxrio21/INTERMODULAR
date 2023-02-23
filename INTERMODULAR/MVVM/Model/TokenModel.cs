@@ -23,4 +23,10 @@ namespace INTERMODULAR.MVVM.Model
         public string status { get; set; }
         public PostModel[] data { get; set; }
     }
+
+    public class ResponseCommModel
+    {
+        public string status { get; set; }
+        public CommModel[] data { get; set; }
+    }
 }

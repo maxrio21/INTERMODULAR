@@ -106,7 +106,8 @@
                         Height="25"
                         Width="24"
                         HorizontalAlignment="Left"
-                        BorderThickness="0">
+                        BorderThickness="0"
+                        Command="{Binding EditPubliVC}">
                         <Icon:PackIconMaterial Kind="PencilOutline" Foreground="White"/>
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -121,7 +122,8 @@
                         Width="25"
                         HorizontalAlignment="Left"
                         BorderThickness="0"
-                        Margin="5,0,0,0">
+                        Margin="5,0,0,0"
+                        Command="{Binding DelPubliVC}">
                         <Icon:PackIconMaterial Kind="DeleteOutline" Foreground="White"/>
                         <Button.Resources>
                             <Style TargetType="Border">

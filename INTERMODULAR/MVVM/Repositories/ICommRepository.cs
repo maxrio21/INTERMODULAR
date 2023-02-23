@@ -14,5 +14,6 @@ namespace INTERMODULAR.MVVM.Repositories
         //Task<UserModel> GetByID(string id);
         CommModel GetByUsername(string username);
         Task<IEnumerable<CommModel>> GetByAll();
+        Task<IEnumerable<CommModel>> GetAllFromComm(string post);
     }
 }

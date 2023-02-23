@@ -1,4 +1,5 @@
-﻿using System;
+﻿using INTERMODULAR.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,8 @@ namespace INTERMODULAR.MVVM.View
         {
             InitializeComponent();
 
+            this.DataContext = new PubliComentViewModel();
+
             this.Id = id;
             this.Titulo = titulo;
             this.Foto = foto;
@@ -46,6 +49,8 @@ namespace INTERMODULAR.MVVM.View
             b_categoria.Text = this.Categoria;
 
             showPubBtn.CommandParameter = this.Id;
+            delBtn.CommandParameter = this.Id;
+
         }
     }
 }

@@ -357,11 +357,11 @@
         </Style.Setters>
     </Style>
 
-    <Style x:Key="logOutBtn" TargetType="RadioButton">
+    <Style x:Key="logOutBtn" TargetType="Button">
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="RadioButton">
+                    <ControlTemplate TargetType="Button">
                         <Border x:Name="radioBorder" Background="Transparent"
                                 Margin="20"
                                 Padding="15,0,0,0"
@@ -383,13 +383,6 @@
                             </StackPanel>
 
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="Background" Value="White" TargetName="radioBorder"/>
-                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioIcon"/>
-                                <Setter Property="Foreground" Value="#FF5ac491" TargetName="radioText"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>

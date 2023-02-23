@@ -16,6 +16,7 @@ namespace INTERMODULAR.MVVM.ViewModel
     {
         IUserRepository userRepository;
         IPostRepository postRepository;
+        private bool _isViewVisible = true;
 
         public ViewModelCommand HomeVC { get; set; }
         public ViewModelCommand UserVC { get; set; }
@@ -23,6 +24,7 @@ namespace INTERMODULAR.MVVM.ViewModel
         public ViewModelCommand PubliVC { get; set; }
         public ViewModelCommand PubliCommVC { get; set; }
         public ViewModelCommand DeleteUserVC { get; set; }
+        public ViewModelCommand LogOutVC { get; set; }
 
 
         public HomeViewModel HomeVM { get; set; }
@@ -40,6 +42,16 @@ namespace INTERMODULAR.MVVM.ViewModel
             OnPropertyChanged();}
         }
 
+        public bool IsViewVisible
+        {
+            get => _isViewVisible;
+            set
+            {
+                _isViewVisible = value;
+                OnPropertyChanged(nameof(IsViewVisible));
+
+            }
+        }
         public MainViewModel()
         {
             userRepository = new UserRepository();
@@ -102,6 +114,17 @@ namespace INTERMODULAR.MVVM.ViewModel
                 if (MessageBox.Show("¿Deseas borrar al usuario?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     userRepository.Remove(id);
+                }
+            });        
+            LogOutVC = new ViewModelCommand(o => 
+            {
+                var login = new LoginView();
+                foreach (Window item in Application.Current.Windows)
+                {
+                    if(item.DataContext == this)
+                    {
+                        item.Close();
+                    }
                 }
             });
         }

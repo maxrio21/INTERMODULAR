@@ -20,6 +20,7 @@ namespace INTERMODULAR.MVVM.View
     /// </summary>
     public partial class MainView : Window
     {
+        
         public MainView()
         {
             InitializeComponent();

@@ -51,22 +51,6 @@ namespace INTERMODULAR.MVVM.Repositories
 
         public async Task Edit(string name, string lastname, string email)
         {
-            /*
-            var user = this.GetByID(username).Result;
-            user.nombre = name;
-            user.apellido = lastname;
-
-            var client = new RestClient("http://localhost:3000/");
-            var req = new RestRequest("api/users/" + username, Method.Put);
-            var json = JsonConvert.SerializeObject(user);
-            req.AddJsonBody(json);
-            MessageBox.Show(json);
-            var res = client.Execute(req);
-
-            req.AddParameter("nombre",name, ParameterType.RequestBody);
-            req.AddParameter("apellido",lastname, ParameterType.RequestBody);
-            */
-
             PutModel put = new PutModel();
             put.nombre = name;
             put.apellido = lastname;
@@ -150,10 +134,10 @@ namespace INTERMODULAR.MVVM.Repositories
 
         public async Task RemoveImg(string id)
         {
-            var usuario = (UserModel)Application.Current.Properties["EDITUSER"];
+            var usuario = (FotoModel)Application.Current.Properties["EDITUSER"];
 
             RemoveImgModel userModel = new RemoveImgModel();
-            userModel._id = usuario._id;
+            userModel._id = usuario.id;
 
             var client = new RestClient("http://localhost:3000/");
             var req = new RestRequest("api/images/remove/", Method.Post);
@@ -161,7 +145,7 @@ namespace INTERMODULAR.MVVM.Repositories
 
             MessageBox.Show(userModel._id);
             
-            //req.AddBody(usuario);
+            req.AddBody(usuario);
 
             var res = client.Execute(req);
 
@@ -184,8 +168,6 @@ namespace INTERMODULAR.MVVM.Repositories
             {
                 MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
             }
-
-            throw new NotImplementedException();
         }
     }
 }

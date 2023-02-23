@@ -87,7 +87,7 @@ namespace INTERMODULAR.MVVM.Repositories
         public async Task Remove(string id)
         {
             var client = new RestClient("http://localhost:3000/");
-            var req = new RestRequest("api/users/" + id, Method.Delete);
+            var req = new RestRequest("api/posts/" + id, Method.Delete);
             req.RequestFormat = RestSharp.DataFormat.Json;
 
             var res = client.Execute(req);

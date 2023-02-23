@@ -16,27 +16,23 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+    
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
     <Border CornerRadius="30,30,30,30" MouseLeftButtonDown="Border_MouseLeftButtonDown">
-        <!--<Border.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFA5D26A" Offset="0"/>
-                <GradientStop Color="#FF26BBAC" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.Background>-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition Width="177*"/>
-                <ColumnDefinition Width="623*"/>
-            </Grid.ColumnDefinitions>-->
 
             <Border CornerRadius="30,30,30,30" Grid.Column="0" Margin="0,46,817,0" Panel.ZIndex="1000">
                 <Border.Background>
@@ -92,7 +88,7 @@
                         <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas" Command="{Binding PubliVC}"/>
                         <RadioButton Style="{StaticResource profileBtn}" Content="Perfil"/>
                     </StackPanel>
-                    <RadioButton Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" VerticalAlignment="Bottom"/>
+                    <Button Style="{StaticResource logOutBtn}" Content="Logout" Grid.Row="1" Command="{Binding LogOutVC}" VerticalAlignment="Bottom"/>
 
                 </Grid>
             </Border>

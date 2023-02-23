@@ -22,11 +22,12 @@ namespace INTERMODULAR.MVVM.View
     public partial class PubliComentView : UserControl
     {
         IUserRepository userRepository;
+        ICommRepository commRepository;
 
         public PubliComentView()
         {
 
-            
+            commRepository = new CommRepository();
 
             InitializeComponent();
             this.DataContext = new PubliComentViewModel();
@@ -64,7 +65,15 @@ namespace INTERMODULAR.MVVM.View
             ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
             this.post_user_img.Background = ib;
 
-            //MessageBox.Show(post._id);
+            CommModel[] comentarios = commRepository.GetByAll().Result.ToArray();            
+
+            foreach(var comentario in comentarios)
+            {
+                if (comentario.publicacion_id == post.nombre)
+                {
+                    comments_panel.Children.Add(new Comentario(comentario._id,comentario.usuario_id, comentario.fecha + " " + comentario.hora, comentario.contenido));
+                }
+            }
         }
     }
 }

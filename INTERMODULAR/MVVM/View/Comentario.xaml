@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
+             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="130" d:DesignWidth="800">
-    <Grid
-        Background="White">
+             Height="130" Width="600">
+    <Grid>
         <Grid
             Margin="10">
             <Grid.RowDefinitions>
@@ -15,7 +14,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
             <Border x:Name="comm_foto" 
@@ -34,7 +33,7 @@
                 <TextBlock x:Name="comm_usuario"
                 FontWeight="Bold"
                 Text="user"/>
-                <TextBlock x:Name="hora"
+                <TextBlock x:Name="comm_fecha"
                 Text="00:00"/>
             </StackPanel>
             <Grid 
@@ -51,6 +50,25 @@
                 Grid.ColumnSpan="2"
                 VerticalAlignment="Bottom" 
                 Background="#FFE2E2E2"/>
+            <Button 
+                Name="delBtn"
+                Background="#FF81CA46"
+                Height="25"
+                Width="25"
+                Margin="0,0,5,10"
+                BorderThickness="0"
+                HorizontalAlignment="Right" 
+                Grid.Column="1"
+                Grid.Row="1" 
+                VerticalAlignment="Bottom"
+                Command="{Binding DelCommVC}">
+                <Icon:PackIconMaterial Kind="DeleteOutline" Foreground="White"/>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

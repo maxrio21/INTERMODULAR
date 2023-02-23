@@ -69,26 +69,6 @@ namespace INTERMODULAR.MVVM.View
 
             panel_rutas.Children.Add(new Publicacion(id,titulo,foto, comp_usu, fecha,descripcion,categoria));
         }
-
-            //Herencia de objetos
-            /*
-            panel_rutas.Children.Add(container);
-            container.Child = main_grid;
-            main_grid.Children.Add(titulo_tb);
-            main_grid.Children.Add(sp_cabecera);
-            sp_cabecera.Children.Add(contenedor_perfil);
-            sp_cabecera.Children.Add(sp_usuario_fecha);
-            sp_usuario_fecha.Children.Add(usuario_tb);
-            sp_usuario_fecha.Children.Add(fecha_tb);
-            main_grid.Children.Add(contenedor_cat);
-            contenedor_cat.Child = categoria_tb;
-            main_grid.Children.Add(descripcion_tb);
-            main_grid.Children.Add(publicacion_img);
-            main_grid.Children.Add(opciones);
-            opciones.Children.Add(editBtn);
-            opciones.Children.Add(delBtn);
-            main_grid.Children.Add(openBtn);
-            */  
     }
 }
 
