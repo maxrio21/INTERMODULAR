@@ -135,18 +135,19 @@ namespace INTERMODULAR.MVVM.Repositories
 
         public async Task RemoveImg(string id)
         {
-            var usuario = (FotoModel)Application.Current.Properties["EDITUSER"];
+        
+            var usuario = Application.Current.Properties["EDITUSER"] as UserModel;
 
-            RemoveImgModel userModel = new RemoveImgModel();
-            userModel._id = usuario.id;
+            RemoveImgModel removeImgModel = new RemoveImgModel();
+            removeImgModel.user = usuario._id;
 
             var client = new RestClient("http://localhost:3000/");
             var req = new RestRequest("api/images/remove/", Method.Post);
             req.RequestFormat = RestSharp.DataFormat.Json;
 
-            MessageBox.Show(userModel._id);
+            MessageBox.Show("Se ha borrado correctamente la imagen del usuario: " + removeImgModel.user);
             
-            req.AddBody(usuario);
+            req.AddBody(removeImgModel);
 
             var res = client.Execute(req);
 

@@ -38,7 +38,7 @@ namespace INTERMODULAR.MVVM.Model
 
     public class RemoveImgModel
     {
-        public string _id { get; set; }
+        public string user { get; set; }
 
     }
 }
