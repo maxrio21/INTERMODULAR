@@ -40,6 +40,7 @@ namespace INTERMODULAR.MVVM.Repositories
                 var json = res.Content.ToString();
                 string token = JsonConvert.DeserializeObject<TokenModel>(json).data[0];
                 Application.Current.Properties["TOKEN"] = token;
+                Application.Current.Properties["LOGEDUSER"] = loginModel._id;
                 return true;
             }
             else

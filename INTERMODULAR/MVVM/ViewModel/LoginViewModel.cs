@@ -98,7 +98,6 @@ namespace INTERMODULAR.MVVM.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-            //LoginModel model = new LoginModel();
             var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username,Password));
             if (isValidUser.Result)
             {
@@ -115,9 +114,6 @@ namespace INTERMODULAR.MVVM.ViewModel
                         item.Close();
                     }
                 }
-
-
-
             }
             else
             {

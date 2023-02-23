@@ -71,15 +71,19 @@
                                 CornerRadius="25"
                                 DockPanel.Dock="Top">
                         </Border>
-                        <TextBlock Text="Nombre" DockPanel.Dock="Top" 
-                                   TextAlignment="Center" 
-                                   FontSize="16"
-                                   Foreground="White"/>
-
-                        <TextBlock Text="Apellidos" DockPanel.Dock="Top" 
-                                   TextAlignment="Center" 
-                                   FontSize="16"
-                                   Foreground="White"/>
+                        <TextBlock  x:Name="logged_user_name"
+                                    Text="Nombre" 
+                                    DockPanel.Dock="Top" 
+                                    TextAlignment="Center" 
+                                    FontSize="16"
+                                    Foreground="White"/>
+                        <TextBlock 
+                                    x:Name="logged_user_lastname"
+                                    Text="Apellidos" 
+                                    DockPanel.Dock="Top" 
+                                    TextAlignment="Center" 
+                                    FontSize="16"
+                                    Foreground="White"/>
                     </DockPanel>
 
                     <StackPanel Grid.Row="1" Margin="0,2,0,90">

@@ -130,5 +130,12 @@ namespace INTERMODULAR.MVVM.ViewModel
                 }
             });
         }
+
+        public UserModel getLoggedUser(string id)
+        {
+            userRepository = new UserRepository();
+            UserModel user = userRepository.GetByID(id).Result;
+            return user;
+        }
     }
 }
