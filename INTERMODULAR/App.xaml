@@ -5,7 +5,7 @@
              xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel"
              xmlns:view="clr-namespace:INTERMODULAR.MVVM.View"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             Startup="ApplicationStart"
+             StartupUri="MVVM/View/LoginView.xaml"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
         

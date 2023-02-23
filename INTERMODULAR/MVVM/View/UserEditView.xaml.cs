@@ -23,9 +23,6 @@ namespace INTERMODULAR.MVVM.View
     /// </summary>
     public partial class UserEditView : UserControl
     {
-        IUserRepository userRepository;
-
-        
         public UserEditView()
         {
             InitializeComponent();

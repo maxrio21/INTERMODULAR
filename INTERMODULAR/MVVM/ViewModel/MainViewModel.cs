@@ -118,10 +118,12 @@ namespace INTERMODULAR.MVVM.ViewModel
             });        
             LogOutVC = new ViewModelCommand(o => 
             {
-                var login = new LoginView();
+                LoginView login = new LoginView();
+                login.Show();
+
                 foreach (Window item in Application.Current.Windows)
                 {
-                    if(item.DataContext == this)
+                    if (item.DataContext == this)
                     {
                         item.Close();
                     }

@@ -1,4 +1,5 @@
 ﻿using INTERMODULAR.MVVM.Repositories;
+using INTERMODULAR.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace INTERMODULAR.MVVM.ViewModel
@@ -102,7 +104,20 @@ namespace INTERMODULAR.MVVM.ViewModel
             {
                 Thread.CurrentPrincipal = new GenericPrincipal(
                     new GenericIdentity(Username), null);
-                IsViewVisible = false;
+
+                MainView main = new MainView();
+                main.Show();
+
+                foreach (Window item in Application.Current.Windows)
+                {
+                    if (item.DataContext == this)
+                    {
+                        item.Close();
+                    }
+                }
+
+
+
             }
             else
             {
