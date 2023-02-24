@@ -15,7 +15,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
-    
+
     <Window.DataContext>
         <viewModel:LoginViewModel/>
     </Window.DataContext>
@@ -28,7 +28,7 @@
         <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
     </Window.Visibility>
 
-    <Border Background="#FFFFFF" CornerRadius="15,17,17,15" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid RenderTransformOrigin="0.516,0.5">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -38,6 +38,120 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+
+            <Border 
+                Background="#FFFFFF"
+                CornerRadius="15,0,0,15" 
+                Grid.Column="0">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="67*"/>
+                        <RowDefinition Height="90*"/>
+                        <RowDefinition Height="68*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel 
+                            Grid.Row="0" 
+                            Orientation="Vertical"
+                            VerticalAlignment="Bottom"
+                            Margin="30,0,0,00" Height="62">
+                        <TextBlock 
+                                Style="{StaticResource Fuentes}"
+                                Text="Bienvenido" 
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top" 
+                                FontSize="30" 
+                                FontWeight="Bold"/>
+                        <TextBlock 
+                                Text="Inicia Sesión" 
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top" 
+                                FontSize="18" 
+                                FontWeight="Normal" 
+                                Style="{StaticResource Fuentes}"/>
+                    </StackPanel>
+
+                    <StackPanel 
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        VerticalAlignment="Center" Height="90">
+                        <StackPanel 
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Height="35"
+                            Margin="0,0,0,20">
+                            <Icon:PackIconMaterial 
+                                Kind="AccountOutline" 
+                                Foreground="Black"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                            <TextBox 
+                                x:Name="tb_User" 
+                                HorizontalAlignment="Left" 
+                                VerticalContentAlignment="Center"
+                                TextWrapping="Wrap" 
+                                Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+                                VerticalAlignment="Top" 
+                                Width="280"
+                                BorderThickness="0,0,0,0" 
+                                Height="35" 
+                                Background="#FFF2F2F2"
+                                Style="{StaticResource FuentesBox}"
+                                Padding="15,0,0,0">
+                                <TextBox.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Border.CornerRadius" Value="15"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel 
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Height="35">
+                            <Icon:PackIconMaterial 
+                                Kind="LockOutline" 
+                                Foreground="Black"
+                                Height="20"
+                                Width="20"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+                            <customcontrols:BindablePasswordBox 
+                                Password="{Binding Password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBlock 
+                        Grid.Row="2"
+                        HorizontalAlignment="Center" 
+                        TextWrapping="Wrap" 
+                        Text="{Binding ErrorMessage}"
+                        TextAlignment="Center"
+                        VerticalAlignment="Top"
+                        Foreground="#D7596D" 
+                        Width="312" 
+                        Style="{StaticResource Fuentes}" 
+                        FontWeight="Bold"/>
+                    <Button 
+                        Grid.Row="2"
+                        Command="{Binding LoginCommand}"
+                        Content="LOGIN" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        Height="36" 
+                        Width="312" 
+                        FontFamily="#DM Sans" 
+                        BorderThickness="0"
+                        FontWeight="Bold">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="Border.CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </Grid>
+            </Border>
 
             <Border CornerRadius="0,15,15,0" Grid.Column="1">
                 <Border.Background>
@@ -62,94 +176,13 @@
             </Border>
 
 
-
-            <TextBlock Text="USUARIO" 
-                       HorizontalAlignment="Left" 
-                       Margin="46,154,0,0" 
-                       VerticalAlignment="Top" 
-                       Style="{StaticResource Fuentes}" 
-                       FontWeight="Bold"
-                       Width="69"/>
             
-            <TextBox x:Name="tb_User" 
-                     HorizontalAlignment="Left" 
-                     VerticalContentAlignment="Center"
-                     Margin="46,173,0,0" 
-                     TextWrapping="Wrap" 
-                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
-                     VerticalAlignment="Top" 
-                     Width="312"
-                     Style="{StaticResource FuentesBox}"
-                     BorderThickness="0,0,0,0" 
-                     Height="35" 
-                     Background="#FFF2F2F2">
-            </TextBox>
-
-            <TextBlock Text="CONTRASEÑA" 
-                       HorizontalAlignment="Left" 
-                       Margin="46,233,0,0" 
-                       VerticalAlignment="Top"
-                       Style="{StaticResource Fuentes}" 
-                       FontWeight="Bold"/>
-            <customcontrols:BindablePasswordBox 
-                Password="{
-                    Binding Password, 
-                    Mode=TwoWay, 
-                    UpdateSourceTrigger=PropertyChanged}" 
-                Margin="46,252,42,163"/>
-
-            <TextBlock 
-                HorizontalAlignment="Left" 
-                Margin="46,292,0,0" 
-                TextWrapping="Wrap" 
-                Text="{Binding ErrorMessage}"
-                VerticalAlignment="Top"
-                Foreground="#D7596D" 
-                Width="312" 
-                FontFamily="Roboto" 
-                FontWeight="Bold"/>
-
-            <Button Command="{Binding LoginCommand}"
-                    Content="LOGIN" 
-                    HorizontalAlignment="Left" 
-                    Margin="46,369,0,0" 
-                    VerticalAlignment="Top" 
-                    Height="36" 
-                    Width="145" 
-                    FontFamily="Roboto" 
-                    FontWeight="Bold"/>
-
-            <TextBlock Style="{StaticResource Fuentes}"
-                       Text="Bienvenido" 
-                       HorizontalAlignment="Left" 
-                       Margin="46,69,0,0" 
-                       VerticalAlignment="Top" 
-                       FontSize="30" 
-                       FontWeight="Bold"/>
-            <TextBlock 
-                Text="Inicia Sesión" 
-                HorizontalAlignment="Left" 
-                Margin="46,105,0,0" 
-                VerticalAlignment="Top" 
-                FontSize="18" 
-                FontWeight="Normal" 
-                Style="{StaticResource Fuentes}"/>
 
 
-            <!--<CheckBox 
-                Content="Mantener sesión inicada" 
-                HorizontalAlignment="Left" 
-                Margin="46,331,0,0" 
-                VerticalAlignment="Top"
-                FontFamily="Roboto" 
-                VerticalContentAlignment="Center"
-                BorderBrush="#FF569F39" BorderThickness="1,1,1,1">
-                <CheckBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="1"></Setter>
-                    </Style>
-                </CheckBox.Resources>
-            </CheckBox>-->
+
+
+
+
             <Border DockPanel.Dock="Top" Width="auto"  Grid.Column="1" Margin="0,60,0,290">
                 <Border.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Images/LogoEnteroBlanco.png"/>
