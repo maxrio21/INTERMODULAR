@@ -33,5 +33,10 @@ namespace INTERMODULAR.MVVM.View
         {
             this.DragMove();
         }
+
+        private void CloseAPP(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

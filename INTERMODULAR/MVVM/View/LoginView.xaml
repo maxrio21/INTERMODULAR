@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
         xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel" 
-        xmlns:customcontrols="clr-namespace:INTERMODULAR.CustomControls"
+        xmlns:customcontrols="clr-namespace:INTERMODULAR.CustomControls" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="LoginView" 
         Height="450" 
@@ -43,6 +43,22 @@
                 <Border.Background>
                     <ImageBrush Stretch="UniformToFill" ImageSource="/Images/left_login.jpg"/>
                 </Border.Background>
+                <Grid>
+                    <Button
+                        Height="40"
+                        Width="40"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="10" Click="CloseAPP">
+                        <Icon:PackIconMaterial 
+                            Kind="Close" 
+                            Foreground="White"
+                            Height="20"
+                            Width="20"/>
+                    </Button>
+                </Grid>
             </Border>
 
 
