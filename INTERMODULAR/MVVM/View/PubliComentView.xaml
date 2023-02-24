@@ -58,7 +58,7 @@
                                             Width="20"
                                             HorizontalAlignment="Left"
                                             Background="#FF81CA46"
-                                            BorderThickness="0">
+                                            BorderThickness="0" Click="slider_back">
                                             <Button.Effect>
                                                 <DropShadowEffect 
                                                     BlurRadius="7"                                       
@@ -84,7 +84,7 @@
                                             Width="20"
                                             HorizontalAlignment="Right"
                                             Background="#FF81CA46"
-                                            BorderThickness="0">
+                                            BorderThickness="0" Click="slider_next">
                                             <Button.Effect>
                                                 <DropShadowEffect 
                                                     BlurRadius="7"                                       
