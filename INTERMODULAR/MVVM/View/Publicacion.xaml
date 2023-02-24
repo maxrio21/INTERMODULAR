@@ -88,7 +88,7 @@
                     </Button.Resources>
                 </Button>
 
-                <Border 
+                <Border x:Name="b_Pfoto"
                         Grid.Row="0" 
                         Grid.RowSpan="2" 
                         Width="80"
@@ -104,7 +104,7 @@
                     <Button Name="editBtn"
                         Background="#FF81CA46"
                         Height="25"
-                        Width="24"
+                        Width="25"
                         HorizontalAlignment="Left"
                         BorderThickness="0"
                         Command="{Binding EditPubliVC}">

@@ -1,4 +1,5 @@
-﻿using INTERMODULAR.MVVM.ViewModel;
+﻿using INTERMODULAR.MVVM.Repositories;
+using INTERMODULAR.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace INTERMODULAR.MVVM.View
     /// </summary>
     public partial class Publicacion : UserControl
     {
+        IUserRepository userRepository;
+
         public string Id { set; get; }
         public string Titulo { set; get; }
         public string Foto { set; get; }
@@ -30,6 +33,8 @@ namespace INTERMODULAR.MVVM.View
         public string Categoria { set; get; }
         public Publicacion(string id, string titulo, string foto, string usuario, string fecha, string descripcion, string categoria)
         {
+            userRepository = new UserRepository();
+
             InitializeComponent();
 
             this.DataContext = new PubliComentViewModel();
@@ -47,6 +52,40 @@ namespace INTERMODULAR.MVVM.View
             b_fecha.Text = this.Fecha;
             b_descripcion.Text = this.Descripcion;
             b_categoria.Text = this.Categoria;
+
+            string fotoUsu = userRepository.GetByID(usuario).Result.foto;
+
+            ImageBrush ib = new ImageBrush();
+            ImageBrush ibp = new ImageBrush();
+
+            Uri rute;
+            Uri rutep;
+
+            if (String.IsNullOrEmpty(fotoUsu))
+            {
+                rutep = new Uri(@"http://localhost:3000/uploads/users/default.jpg");
+            }
+            else
+            {
+                rutep = new Uri(@"http://localhost:3000/" + fotoUsu);
+            }
+
+            ibp.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rutep);
+            ibp.Stretch = Stretch.UniformToFill;
+            b_foto.Fill = ibp;
+
+            if (foto == "default")
+            {
+                rute = new Uri(@"http://localhost:3000/uploads/posts/empty-image.png");
+            }
+            else
+            {
+                rute = new Uri(@"http://localhost:3000/" + foto);
+            }
+
+            ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
+            ib.Stretch = Stretch.UniformToFill;
+            b_Pfoto.Background = ib;
 
             showPubBtn.CommandParameter = this.Id;
             delBtn.CommandParameter = this.Id;
