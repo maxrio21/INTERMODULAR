@@ -29,14 +29,7 @@
                    HorizontalAlignment="Left" 
                    Foreground="#717374"
                    Grid.Row="1" Height="28" Width="333"/>
-
-        <Button Style="{StaticResource addButton}" Grid.Row="0" VerticalAlignment="Bottom" Height="35" Width="150">
-            <StackPanel Orientation="Horizontal">
-                <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Margin="0 1 8 0"/>
-                <TextBlock Text="Añadir usuario"/>
-            </StackPanel>
-        </Button>
-
+        
         <DataGrid Style="{DynamicResource DataGridStyle1}" 
                   CellStyle="{DynamicResource DataGridCellStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 

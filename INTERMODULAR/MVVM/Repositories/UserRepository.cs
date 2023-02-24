@@ -64,8 +64,6 @@ namespace INTERMODULAR.MVVM.Repositories
             req.AddHeader("Accept", "application/json");
             req.AddJsonBody(JsonConvert.SerializeObject(put));
 
-            MessageBox.Show(usuario._id);
-
             var res = client.Execute(req);
 
             if (!res.IsSuccessStatusCode)
@@ -73,6 +71,9 @@ namespace INTERMODULAR.MVVM.Repositories
                 MessageBox.Show("No se ha podido modificar el usuario. " + res.StatusCode.ToString());
                 return;
             }
+
+            MessageBox.Show("Usuario " + usuario._id + " modificado con éxito.");
+
         }
 
         public async Task<IEnumerable<UserModel>> GetByAll()
@@ -115,7 +116,6 @@ namespace INTERMODULAR.MVVM.Repositories
 
             if (!res.IsSuccessStatusCode)
             {
-                //MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
                 return usuario;
             }
 
@@ -126,11 +126,6 @@ namespace INTERMODULAR.MVVM.Repositories
 
             //Obtiene el modelo del usuario
             return usuario = JsonConvert.DeserializeObject<UserModel>(JsonConvert.SerializeObject(usuarios_get.data[0]));
-        }
-
-        public UserModel GetByUsername(string username)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task RemoveImg(string id)
@@ -144,8 +139,6 @@ namespace INTERMODULAR.MVVM.Repositories
             var client = new RestClient("http://localhost:3000/");
             var req = new RestRequest("api/images/remove/", Method.Post);
             req.RequestFormat = RestSharp.DataFormat.Json;
-
-            MessageBox.Show("Se ha borrado correctamente la imagen del usuario: " + removeImgModel.user);
             
             req.AddBody(removeImgModel);
 
@@ -156,6 +149,9 @@ namespace INTERMODULAR.MVVM.Repositories
                 MessageBox.Show("No se ha podido borrar la imagen asociada al usuario" + res.StatusCode.ToString());
                 return;
             }
+
+            MessageBox.Show("Se ha borrado correctamente la imagen del usuario: " + removeImgModel.user);
+
         }
 
         public async Task Remove(string id)
@@ -168,8 +164,10 @@ namespace INTERMODULAR.MVVM.Repositories
 
             if (!res.IsSuccessStatusCode)
             {
-                MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
+                MessageBox.Show("No se ha encontrado un usuario con ID: " + id);
             }
+
+            MessageBox.Show("Se ha borrado con éxito el usuario: " + id);
         }
     }
 }
