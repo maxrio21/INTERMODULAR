@@ -16,16 +16,6 @@ namespace INTERMODULAR.MVVM.Repositories
 {
     public class PostRepository : IPostRepository
     {
-        public void Add(PostModel userModel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Edit(PostModel userModel)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<PostModel>> GetByAll()
         {
             PostModel postModel = new PostModel();
@@ -79,11 +69,6 @@ namespace INTERMODULAR.MVVM.Repositories
             return post = JsonConvert.DeserializeObject<PostModel>(JsonConvert.SerializeObject(post_get.data[0]));
         }
 
-        public UserModel GetByUsername(string username)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task Remove(string id)
         {
             var client = new RestClient("http://localhost:3000/");
@@ -96,8 +81,6 @@ namespace INTERMODULAR.MVVM.Repositories
             {
                 MessageBox.Show("Debug >> No se ha encontrado un usuario con ID: " + id);
             }
-
-            throw new NotImplementedException();
         }
     }
 }

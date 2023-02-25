@@ -61,11 +61,6 @@ namespace INTERMODULAR.MVVM.Repositories
             return comentarios;
         }
 
-        public CommModel GetByUsername(string username)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task Remove(string id)
         {
             var client = new RestClient("http://localhost:3000/");

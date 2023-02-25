@@ -11,8 +11,6 @@ namespace INTERMODULAR.MVVM.Repositories
     public interface ICommRepository
     {
         Task Remove(string id);
-        //Task<UserModel> GetByID(string id);
-        CommModel GetByUsername(string username);
         Task<IEnumerable<CommModel>> GetByAll();
         Task<IEnumerable<CommModel>> GetAllFromComm(string post);
     }

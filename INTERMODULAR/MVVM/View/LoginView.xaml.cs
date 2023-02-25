@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
-    /// <summary>
-    /// Lógica de interacción para LoginView.xaml
-    /// </summary>
     public partial class LoginView : Window
     {
         public LoginView()

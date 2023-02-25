@@ -96,7 +96,7 @@
                         HorizontalAlignment="Right"
                         CornerRadius="6">
                     <Border.Background>
-                        <ImageBrush ImageSource="../../Images/left_login.jpg"/>
+                        <ImageBrush ImageSource="../../Images/empty-image.png"/>
                     </Border.Background>
                 </Border>
 

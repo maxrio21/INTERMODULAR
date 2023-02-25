@@ -11,8 +11,6 @@ namespace INTERMODULAR.MVVM.ViewModel
 {
     public class UserEditViewModel : ViewModelBase
     {
-        //readonly UserModel usuario = new UserModel();
-
         IUserRepository userRepository;
         private string _correo;
         private string _name;

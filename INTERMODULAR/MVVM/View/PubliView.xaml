@@ -13,7 +13,7 @@
             <RowDefinition Height="121*"/>
 
         </Grid.RowDefinitions>
-        <!--<Button Content="Mostrar comentarios" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Command="{Binding ShowVC}"/>-->
+
         <TextBlock Text="Publicaciones" 
                    FontSize="32" 
                    FontWeight="SemiBold" 
@@ -39,83 +39,5 @@
                     Margin="0,13,10,13"
                     />
         </ScrollViewer>
-
-        <!--
-        <Border CornerRadius="10" 
-                    Background="White" 
-                    Height="250" 
-                    Width="Auto"
-                    Padding="20"
-                    Grid.Row="2">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="7" 
-                                      RenderingBias="Performance" 
-                                      ShadowDepth="0" Color="#FFB7B7B7"/>
-            </Border.Effect>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45*"/>
-                    <ColumnDefinition Width="181*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="35*"/>
-                    <RowDefinition Height="45*"/>
-                    <RowDefinition Height="84*"/>
-                    <RowDefinition Height="40*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Titulo" 
-                               FontSize="21" 
-                               FontFamily="DM Sans" 
-                               FontWeight="Bold"
-                               VerticalAlignment="Center" Height="26" Grid.ColumnSpan="2"/>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" Height="68" Grid.ColumnSpan="2">
-                    <Ellipse Grid.Row="1" Height="40" Width="40">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="../../Images/left_login.jpg"/>
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <StackPanel Orientation="Vertical" 
-                                    VerticalAlignment="Center"
-                                    Margin="10,0,0,0">
-                        <TextBlock Text="Usuario"></TextBlock>
-                        <TextBlock Text="Fecha"></TextBlock>
-                    </StackPanel>
-                </StackPanel>
-                <Border   
-                        Grid.Row="3" 
-                        Background="#FF81CA46"
-                        HorizontalAlignment="Left"
-                        CornerRadius="7"  
-                        VerticalAlignment="Center" Height="22" Width="66" Grid.Column="1" Margin="477,0,0,0">
-                    <TextBlock Text="Categoria"
-                               HorizontalAlignment="Center" 
-                               VerticalAlignment="Center"
-                               Foreground="White"
-                               FontWeight="Bold"
-                               Margin="5 3"/>
-                </Border>
-                <TextBlock Height="Auto" 
-                               TextWrapping="Wrap"
-                               TextAlignment="Justify"
-                               Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit vo" Grid.Row="2" Margin="0,12,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-                <Button Content="asdf" Grid.Row="3" Height="40" Width="40" Margin="184,17,319,-16" Grid.Column="1">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="Border.CornerRadius" Value="100"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-
-                <Border Grid.Row="0" 
-                            Grid.RowSpan="2" 
-                            Width="79" 
-                            HorizontalAlignment="Left"
-                            CornerRadius="6" Grid.Column="1" Margin="464,0,0,0">
-                    <Border.Background>
-                        <ImageBrush ImageSource="../../Images/left_login.jpg"/>
-                    </Border.Background>
-                </Border>
-            </Grid>
-        </Border>-->
     </Grid>
 </UserControl>

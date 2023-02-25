@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
-    /// <summary>
-    /// Lógica de interacción para MainView.xaml
-    /// </summary>
     public partial class MainView : Window
     {
         
@@ -26,8 +23,6 @@ namespace INTERMODULAR.MVVM.View
         {
             InitializeComponent();
             var logged_user = ((MainViewModel)this.DataContext).getLoggedUser(Application.Current.Properties["LOGEDUSER"].ToString());
-
-
 
             ImageBrush ib = new ImageBrush();
             ib.Stretch = Stretch.Uniform;

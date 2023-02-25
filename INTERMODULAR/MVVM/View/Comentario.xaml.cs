@@ -15,11 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace INTERMODULAR.MVVM.View
-{
-    /// <summary>
-    /// Lógica de interacción para Comentario.xaml
-    /// </summary>
+namespace INTERMODULAR.MVVM.View { 
     public partial class Comentario : UserControl
     {
         public string Id { get; set; }

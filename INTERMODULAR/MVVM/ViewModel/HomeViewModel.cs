@@ -8,6 +8,5 @@ namespace INTERMODULAR.MVVM.ViewModel
 {
     class HomeViewModel
     {
-
     }
 }

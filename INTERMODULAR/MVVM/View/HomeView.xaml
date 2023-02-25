@@ -3,11 +3,199 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View"
+             xmlns:local="clr-namespace:INTERMODULAR.MVVM.View" 
+             xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
-        <Label Content="Home" HorizontalAlignment="Left" Margin="89,62,0,0" Foreground="Black" VerticalAlignment="Top"/>
+        <Border
+            Background="White"
+            CornerRadius="15">
+            <Border.Effect>
+                <DropShadowEffect 
+                    BlurRadius="10"                                       
+                    RenderingBias="Performance"                                         
+                    ShadowDepth="0" Color="#FFB7B7B7"/>
+            </Border.Effect>
+            <Grid Margin="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image 
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Source="/Images/LogoEnteroVerde.png"/>
+                <Border 
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    CornerRadius="10">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/UserLeftButtonImg.jpeg" Stretch="UniformToFill"/>
+                    </Border.Background>
+                    <Border.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="15"                                       
+                            RenderingBias="Performance"                                         
+                            ShadowDepth="0" Color="#FFB7B7B7"/>
+                    </Border.Effect>
+                    <Grid>
 
+                        <Button 
+                            Command="{Binding DataContext.UserVC, RelativeSource={RelativeSource AncestorType=local:MainView}}"
+                            Background="Transparent"
+                            BorderThickness="0">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsMouseOver" Value="True"/>
+                                            </MultiTrigger.Conditions>
+                                            <MultiTrigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Duration="0:0:0.15"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                To="#33000000"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </MultiTrigger.EnterActions>
+                                            <MultiTrigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Duration="0:0:0.15"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                To="Transparent"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </MultiTrigger.ExitActions>
+                                        </MultiTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Border>
+                <StackPanel 
+                Orientation="Vertical"
+                Grid.Column="1"
+                Grid.Row="2"
+                VerticalAlignment="Center">
+
+                    <TextBlock 
+                        TextWrapping="Wrap"
+                        Text="Observa, borra y actualiza la información de los usuarios con una interfaz sencilla y útil."
+                        FontSize="20"
+                        Margin="20,0,20,0"
+                        TextAlignment="Justify"/>
+
+                </StackPanel>
+
+                <StackPanel 
+                Orientation="Vertical"
+                Grid.Column="0"
+                Grid.Row="4"
+                VerticalAlignment="Center">
+
+                    <TextBlock 
+                        TextWrapping="Wrap"
+                        Text="Visualiza y borra rutas además de administrar de los comentarios de los usuarios con un solo click."
+                        FontSize="20"
+                        Margin="20,0,20,0"
+                        TextAlignment="Justify"/>
+
+                </StackPanel>
+                <Border 
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    CornerRadius="10">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/UserRightButtonImg.jpeg" Stretch="UniformToFill"/>
+                    </Border.Background>
+                    <Border.Effect>
+                        <DropShadowEffect 
+                            BlurRadius="15"                                       
+                            RenderingBias="Performance"                                         
+                            ShadowDepth="0" Color="#FFB7B7B7"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Button 
+                            Command="{Binding DataContext.PubliVC, RelativeSource={RelativeSource AncestorType=local:MainView}}"
+                            BorderThickness="0"
+                            x:Name="border">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsMouseOver" Value="True"/>
+                                            </MultiTrigger.Conditions>
+                                            <MultiTrigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Duration="0:0:0.15"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                To="#33000000"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </MultiTrigger.EnterActions>
+                                            <MultiTrigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Duration="0:0:0.15"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                To="Transparent"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </MultiTrigger.ExitActions>
+                                        </MultiTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

@@ -16,11 +16,6 @@ namespace INTERMODULAR.MVVM.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public async Task Add(UserModel userModel)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<bool> AuthenticateUser(NetworkCredential credential)
         {
             LoginModel loginModel = new LoginModel();

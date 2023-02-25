@@ -175,19 +175,12 @@
                 </Grid>
             </Border>
 
-
-            
-
-
-
-
-
-
             <Border DockPanel.Dock="Top" Width="auto"  Grid.Column="1" Margin="0,60,0,290">
                 <Border.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Images/LogoEnteroBlanco.png"/>
                 </Border.Background>
             </Border>
+            
             <TextBlock 
                 Text="Descubre" 
                 HorizontalAlignment="Left" 
@@ -216,8 +209,6 @@
                 Foreground="#FFE0E0E0" 
                 TextTrimming="None" 
                 FontStretch="Normal"/>
-
-
         </Grid>
     </Border>
 </Window>

@@ -7,9 +7,6 @@
              xmlns:viewModel="clr-namespace:INTERMODULAR.MVVM.ViewModel" xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="590" d:DesignWidth="718">
-    <!--<UserControl.DataContext>
-        <viewModel:MainViewModel/>
-    </UserControl.DataContext>-->
     <UserControl.DataContext>
         <viewModel:UserEditViewModel/>
     </UserControl.DataContext>
@@ -146,14 +143,5 @@
                                 ShadowDepth="0" Color="#FFB7B7B7"/>
             </Border.Effect>
         </Border>
-
-
-
-        <!--<Button Style="{StaticResource addButton}" Grid.Row="0" VerticalAlignment="Bottom" Height="35" Width="150">
-            <StackPanel Orientation="Horizontal">
-                <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Margin="0 1 8 0"/>
-                <TextBlock Text="Añadir usuario"/>
-            </StackPanel>
-        </Button>-->
     </Grid>
 </UserControl>

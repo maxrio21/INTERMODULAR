@@ -11,32 +11,6 @@
         
         <ResourceDictionary>
             
-            <!---Estilos botones-->
-            <!---
-            <Style x:Key="addButton" TargetType="Button">
-                <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="#6e7783"/>
-                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                <Setter Property="Width" Value="30"/>
-                <Setter Property="Height" Value="30"/>
-                <Setter Property="HorizontalAlignment" Value="Left"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" CornerRadius="50">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#dcdcdc"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-            -->
             <Style x:Key="customTextBox" TargetType="TextBox">
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -92,15 +66,7 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <!---
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#51b083"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Trigger>
-                </Style.Triggers>                
-                -->
-                
+
             </Style>
 
             <Style x:Key="gridEditButton" TargetType="Button">
@@ -357,15 +323,8 @@
                 
                 <Style.Triggers>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <!--<Setter Property="Background" Value="#FF5ac491"/>-->
                         <Setter Property="Foreground" Value="White"/>
                     </Trigger>
-                    <!--
-                    <Trigger Property="IsSelected" Value="True">
-                        <Setter Property="Background" Value="#FF5ac491"/>
-                        <Setter Property="Foreground" Value="White"/>
-                    </Trigger>
-                    -->
                     <MultiTrigger>
                         <MultiTrigger.Conditions>
                             <Condition Property="IsSelected" Value="true"/>

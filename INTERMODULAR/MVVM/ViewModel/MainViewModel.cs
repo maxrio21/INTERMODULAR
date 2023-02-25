@@ -62,8 +62,6 @@ namespace INTERMODULAR.MVVM.ViewModel
             PubliVM = new PubliViewModel();
             PubliCommVM = new PubliComentViewModel();
 
-            //UserEditVM = new UserEditViewModel(userRepository.GetByID(id).Result);
-
             CurrentView = HomeVM;
 
             HomeVC = new ViewModelCommand(o => 
@@ -76,15 +74,13 @@ namespace INTERMODULAR.MVVM.ViewModel
                 CurrentView = UserVM;
             });
 
-            UserEditVC = new ViewModelCommand(o => /*Revisar, probalemente funcione pero la api ha sido cambiada.*/
+            UserEditVC = new ViewModelCommand(o => 
             {
                 var id = o.ToString();
 
                 var usuario = userRepository.GetByID(id).Result;
 
                 Application.Current.Properties["EDITUSER"] = usuario;
-                //var rec_usuario = Application.Current.Properties["EDITUSER"] as UserModel;
-                //MessageBox.Show(rec_usuario._id);
 
                 UserEditVM = new UserEditViewModel();
                 CurrentView = UserEditVM;
@@ -104,8 +100,6 @@ namespace INTERMODULAR.MVVM.ViewModel
                 Application.Current.Properties["POST"] = post;
                 CurrentView = PubliCommVM;
             });
-
-            //Utilizamos este comando para editar el usuario en la base de datos con un put
 
             DeleteUserVC = new ViewModelCommand(o => 
             {

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
-    /// <summary>
-    /// Lógica de interacción para Publicacion.xaml
-    /// </summary>
     public partial class Publicacion : UserControl
     {
         IUserRepository userRepository;
@@ -74,18 +71,13 @@ namespace INTERMODULAR.MVVM.View
             ibp.Stretch = Stretch.UniformToFill;
             b_foto.Fill = ibp;
 
-            if (foto == "default")
-            {
-                rute = new Uri(@"http://localhost:3000/uploads/posts/empty-image.png");
-            }
-            else
+            if (foto != "default")
             {
                 rute = new Uri(@"http://localhost:3000/" + foto);
+                ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
+                ib.Stretch = Stretch.UniformToFill;
+                b_Pfoto.Background = ib;
             }
-
-            ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
-            ib.Stretch = Stretch.UniformToFill;
-            b_Pfoto.Background = ib;
 
             showPubBtn.CommandParameter = this.Id;
             delBtn.CommandParameter = this.Id;

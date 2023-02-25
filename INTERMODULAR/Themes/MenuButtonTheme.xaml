@@ -362,13 +362,36 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border x:Name="radioBorder" Background="Transparent"
+                        <Border x:Name="radioBorder"
                                 Margin="20"
                                 Padding="15,0,0,0"
                                 CornerRadius="20,20,20,20"
                                 Height="40">
+                            <Border.Background>
+                                <SolidColorBrush/>
+                            </Border.Background>
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="Border.MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#eb4034" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Border.MouseLeave">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="Transparent" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Border.Triggers>
 
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="3">
                                 <Icon:PackIconMaterial Foreground="White"
                                                            Kind="Logout" 
                                                            Margin="0,0,0,0"
@@ -381,9 +404,36 @@
                                                 VerticalAlignment="Center"
                                                 x:Name="radioText"/>
                             </StackPanel>
-
                         </Border>
+                        <!--<ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.15"
+                                                                Storyboard.TargetName="radioBorder"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                To="White"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Duration="0:0:0.15"
+                                                                Storyboard.TargetName="radioBorder"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                To="Transparent"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                                </MultiTrigger>
+                        </ControlTemplate.Triggers>-->
                     </ControlTemplate>
+
                 </Setter.Value>
             </Setter>
         </Style.Setters>

@@ -91,7 +91,7 @@
                         <RadioButton Style="{StaticResource userBtn}" Content="Usuarios" Command="{Binding UserVC}"/>
                         <RadioButton Style="{StaticResource ruteBtn}" Content="Rutas" Command="{Binding PubliVC}"/>
                     </StackPanel>
-                    <Button Style="{StaticResource logOutBtn}" Command="{Binding LogOutVC}" Content="Logout" Grid.Row="1"  VerticalAlignment="Bottom"/>
+                    <Button Style="{StaticResource logOutBtn}" Command="{Binding LogOutVC}" Content="Logout" Grid.Row="1" VerticalAlignment="Bottom"/>
 
                 </Grid>
             </Border>
@@ -104,9 +104,6 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <Grid>
-
-
-
                     <ContentControl Grid.ColumnSpan="1" 
                             Grid.Row="1"
                             Margin="156,30,30,30"

@@ -19,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace INTERMODULAR.MVVM.View
 {
-    /// <summary>
-    /// Lógica de interacción para UserView.xaml
-    /// </summary>
     public partial class UserView : UserControl
     {
         public UserView()
@@ -30,12 +27,6 @@ namespace INTERMODULAR.MVVM.View
 
             this.DataContext = new UserViewModel();
             usuariosDataGrid.ItemsSource = ((UserViewModel)this.DataContext).RellenarTablaUsuarios();
-        }
-
-       
-        private void DeleteUserEvent(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 
