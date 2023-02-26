@@ -25,7 +25,7 @@ namespace INTERMODULAR.MVVM.View
             var logged_user = ((MainViewModel)this.DataContext).getLoggedUser(Application.Current.Properties["LOGEDUSER"].ToString());
 
             ImageBrush ib = new ImageBrush();
-            ib.Stretch = Stretch.Uniform;
+            ib.Stretch = Stretch.UniformToFill;
             ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"http://localhost:3000/" + logged_user.foto));
             logged_user_name.Text = logged_user.nombre;
             logged_user_lastname.Text = logged_user.apellido;

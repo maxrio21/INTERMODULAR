@@ -64,7 +64,7 @@ namespace INTERMODULAR.MVVM.View
                 rute = new Uri(@"http://localhost:3000/uploads/users/default.jpg");
             }
 
-            ib.Stretch = Stretch.Uniform;
+            ib.Stretch = Stretch.UniformToFill;
             ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
             this.post_user_img.Background = ib;
 

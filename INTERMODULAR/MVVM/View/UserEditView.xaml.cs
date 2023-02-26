@@ -37,7 +37,7 @@ namespace INTERMODULAR.MVVM.View
             ImageBrush ib = new ImageBrush();
             Uri rute = new Uri(@"http://localhost:3000/" + usuario.foto);
 
-            ib.Stretch = Stretch.Uniform;
+            ib.Stretch = Stretch.UniformToFill;
             ib.ImageSource = new System.Windows.Media.Imaging.BitmapImage(rute);
             profile_img.Background = ib;
 
